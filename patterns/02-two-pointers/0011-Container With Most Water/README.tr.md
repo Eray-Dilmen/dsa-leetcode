@@ -8,13 +8,13 @@ You are given an integer array `height` where each element represents the height
 ### Example 1:
 <img src="container.png" width="500" />
 
-> **Input:** `height = [1,8,6,2,5,4,8,3,7]`  
-> **Output:** `49`  
-> **Explanation:** The maximum water is trapped between the lines at index 1 (height 8) and index 8 (height 7). The width is 7, and the limiting height is 7. Area = 7 * 7 = 49.
+**Input:** `height = [1,8,6,2,5,4,8,3,7]`  
+**Output:** `49`  
+**Explanation:** The maximum water is trapped between the lines at index 1 (height 8) and index 8 (height 7). The width is 7, and the limiting height is 7. Area = 7 * 7 = 49.
 
 ### Example 2:
-> **Input:** `height = [1,1]`
-> **Output:** `1`
+**Input:** `height = [1,1]`  
+**Output:** `1`
 
 ---
 
