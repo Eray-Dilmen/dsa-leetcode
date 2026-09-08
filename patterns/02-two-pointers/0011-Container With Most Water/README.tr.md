@@ -3,16 +3,23 @@
 # [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
 
 **Problem Statement**
-Sana, x ekseni üzerinde çizilmiş dikey çizgilerin yüksekliklerini temsil eden bir `height` dizisi veriliyor. Bu çizgilerden herhangi ikisini seçerek, x ekseniyle birlikte içine en çok su alabilecek kabı oluşturman ve bu maksimum su miktarını (alanı) döndürmen isteniyor. Kabı eğemezsin.
+You are given an integer array `height` where each element represents the height of a vertical line drawn on a coordinate plane. The distance between each line is 1 on the x-axis. Find two lines that, together with the x-axis, form a container capable of holding the maximum amount of water. Return this maximum area. You cannot slant the container.
 
 ### Example 1:
-**Input:** `height = [1,8,6,2,5,4,8,3,7]`  
-**Output:** `49`  
-**Explanation:** En çok su 1. indeksteki (yükseklik 8) ve 8. indeksteki (yükseklik 7) çizgiler arasında tutulur. Genişlik 7'dir, suyun taşmaması için sınır yüksekliği de 7 alınır. Alan = 7 * 7 = 49.
+<img src="container.png" width="500" />
+
+> **Input:** `height = [1,8,6,2,5,4,8,3,7]`
+> **Output:** `49`
+> **Explanation:** The maximum water is trapped between the lines at index 1 (height 8) and index 8 (height 7). The width is 7, and the limiting height is 7. Area = 7 * 7 = 49.
 
 ### Example 2:
-**Input:** `height = [1,1]`  
-**Output:** `1`  
+> **Input:** `height = [1,1]`
+> **Output:** `1`
+
+---
+
+**Türkçe Açıklama**
+Sana, x ekseni üzerinde çizilmiş dikey çizgilerin yüksekliklerini temsil eden bir `height` dizisi veriliyor. Bu çizgilerden herhangi ikisini seçerek, x ekseniyle birlikte içine en çok su alabilecek kabı oluşturman ve bu maksimum su miktarını (alanı) döndürmen isteniyor. Kabı eğemezsin.
 
 ---
 
