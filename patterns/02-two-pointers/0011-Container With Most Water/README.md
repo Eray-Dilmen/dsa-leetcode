@@ -6,8 +6,9 @@
 You are given an integer array `height` where each element represents the height of a vertical line drawn on a coordinate plane. The distance between each line is 1 on the x-axis. Find two lines that, together with the x-axis, form a container capable of holding the maximum amount of water. Return this maximum area. You cannot slant the container.
 
 ### Example 1:
-![Container Graph](container.png)
-**Input:** `height = [1,8,6,2,5,4,8,3,7]`  
+<img src="container.png" width="500" />
+
+> **Input:** `height = [1,8,6,2,5,4,8,3,7]`  
 **Output:** `49`  
 **Explanation:** The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
 
