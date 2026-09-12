@@ -19,8 +19,11 @@ You are given an integer array `height` where each element represents the height
 
 ### 1. Two Pointers Approach (Optimal)
 
-To maximize the area of water, we need to balance **width** and **height**. The area is always limited by the shorter line (`min(height[left], height[right])`). 
-We can start by maximizing the width: placing one pointer at the very beginning and one at the very end of the array. To find a potentially larger area, we must compensate for the shrinking width by finding taller lines. Therefore, we always move the pointer that points to the **shorter** line inward, hoping to encounter a taller line.
+To maximize the area of water, we need to balance **width** and **height**. The area is always limited by the shorter line (`min(height[left], height[right])`).
+
+We can start by maximizing the width: placing one pointer at the very beginning and one at the very end of the array.
+
+To find a potentially larger area, we must compensate for the shrinking width by finding taller lines. Therefore, we always move the pointer that points to the **shorter** line inward, hoping to encounter a taller line.
 
 ```python
 class Solution:
@@ -46,17 +49,20 @@ class Solution:
         return max_area
 ```
 
-**Time Complexity:** $O(N)$
+**Time Complexity:** `O(N)`
+
 We traverse the array exactly once, moving the pointers towards each other until they meet.
 
-**Space Complexity:** $O(1)$
+**Space Complexity:** `O(1)`
+
 We only use a few integer variables to keep track of pointers and the maximum area, requiring constant extra memory.
 
 --- 
 
 ### 2. Brute Force Approach (Time Limit Exceeded)
 
-A naive approach is to calculate the area for every possible pair of lines in the array using nested loops, and keep track of the maximum area found.
+* A naive approach is to calculate the area for every possible pair of lines in the array using nested loops.
+* We keep track of the maximum area found across all iterations.
 
 ```python
 class SolutionBruteForce:
@@ -74,10 +80,10 @@ class SolutionBruteForce:
         return max_area
 ```
 
-**Time Complexity:** $O(N^2)$ 
+**Time Complexity:** `O(N^2)` 
 
 Testing every single pair results in a quadratic time complexity, which is too slow for large inputs and will cause a Time Limit Exceeded (TLE) error.
 
-**Space Complexity:** $O(1)$ 
+**Space Complexity:** `O(1)` 
 
 No extra memory is dynamically allocated.

@@ -74,9 +74,13 @@ class Solution:
         return list(l)
 ```
 
-**Time Complexity:** `O(n^2)` Sorting the array takes `O(n log n)`. The `for` loop runs `n` times, and the `while` loop (Two Pointers) takes `O(n)` time for each iteration. `O(n log n) + O(n^2)` simplifies asymptotically to `O(n^2)`.
+**Time Complexity:** `O(n^2)` 
 
-**Space Complexity:** `O(n)` The space complexity is bounded by the Hash Set used to store the unique valid triplets, which can grow linearly with the input size in the worst case. Sorting may also take `O(n)` or `O(log n)` depending on the language's sorting algorithm.
+Sorting the array takes `O(n log n)`. The `for` loop runs `n` times, and the `while` loop (Two Pointers) takes `O(n)` time for each iteration. `O(n log n) + O(n^2)` simplifies asymptotically to `O(n^2)`.
+
+**Space Complexity:** `O(n)` 
+
+The space complexity is bounded by the Hash Set used to store the unique valid triplets, which can grow linearly with the input size in the worst case. Sorting may also take `O(n)` or `O(log n)` depending on the language's sorting algorithm.
 
 --- 
 
@@ -102,6 +106,10 @@ class SolutionBruteForce:
         return list(l)
 ```
 
-**Time Complexity:** `O(n^3)` Three nested loops traverse the array, leading to a cubic time complexity. This will trigger a TLE (Time Limit Exceeded) for large arrays.
+**Time Complexity:** `O(n^3)` 
 
-**Space Complexity:** `O(n)` We still need extra space for the set to manage the unique valid triplets.
+Three nested loops traverse the array, leading to a cubic time complexity. This will trigger a TLE (Time Limit Exceeded) for large arrays.
+
+**Space Complexity:** `O(n)` 
+
+We still need extra space for the set to manage the unique valid triplets.

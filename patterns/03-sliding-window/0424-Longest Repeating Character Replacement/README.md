@@ -2,7 +2,6 @@
 
 # [424. Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
 
-**Problem Statement**
 You are given a string `s` and an integer `k`. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most `k` times.
 
 Return the length of the longest substring containing the same letter you can get after performing the above operations.
@@ -23,15 +22,15 @@ Return the length of the longest substring containing the same letter you can ge
 
 ### 1. Sliding Window with Frequency Map Approach (Optimal)
 
-We use a sliding window defined by two pointers, `l` (left) and `r` (right), and a hash map (`count`) to keep track of the frequencies of characters within the current window. We also maintain a `max_freq` variable to store the count of the most frequent character in our window.
-
-As we expand the window by moving `r` to the right, we calculate the number of characters that need to be replaced. The formula for characters to replace is the current window size `(r - l + 1)` minus the frequency of the most common character `max_freq`. If this difference is strictly greater than `k`, our window is invalid, and we must shrink it from the left by incrementing `l` and decrementing the frequency of the character at `s[l]`. We continuously update the `longest` valid window length.
+* We use a sliding window defined by two pointers, `l` (left) and `r` (right), and a hash map (`count`) to keep track of the frequencies of characters within the current window. 
+* We also maintain a `max_freq` variable to store the count of the most frequent character in our window.
+* As we expand the window by moving `r` to the right, we calculate the number of characters that need to be replaced. 
+* The formula for characters to replace is the current window size `(r - l + 1)` minus the frequency of the most common character `max_freq`. 
+* If this difference is strictly greater than `k`, our window is invalid, and we must shrink it from the left by incrementing `l` and decrementing the frequency of the character at `s[l]`. We continuously update the `longest` valid window length.
 
 ```python
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        # Time Complexity: O(N)
-        # Space Complexity: O(26) -> O(1) since we only store uppercase English letters
         l = 0
         longest = 0
         count = {}
@@ -50,17 +49,26 @@ class Solution:
         return longest
 ```
 
+**Time Complexity:** `O(N)`
+
+The right pointer `r` iterates through the string exactly once. The left pointer `l` only moves forward, meaning each character is processed at most twice.
+
+**Space Complexity:** `O(1)`
+
+The hash map stores at most 26 uppercase English letters. Since the size is strictly bounded by 26, the space complexity is constant `O(26) = O(1)`.
+
 --- 
 
 ### 2. Nested Loops Approach (Brute Force)
 
-We check every possible substring starting from each index. For each substring, we use a hash map to count character frequencies and track the maximum frequency. If the length of the current substring minus the maximum frequency is less than or equal to `k`, it's a valid substring, and we update our maximum length. If it exceeds `k`, we can stop expanding this specific substring. This approach requires quadratic time complexity.
+* We check every possible substring starting from each index. 
+* For each substring, we use a hash map to count character frequencies and track the maximum frequency. 
+* If the length of the current substring minus the maximum frequency is less than or equal to `k`, it's a valid substring, and we update our maximum length. 
+* If it exceeds `k`, we can stop expanding this specific substring.
 
 ```python
 class SolutionBruteForce:
     def characterReplacement(self, s: str, k: int) -> int:
-        # Time Complexity: O(N^2)
-        # Space Complexity: O(26) -> O(1)
         longest = 0
         n = len(s)
         
@@ -78,3 +86,11 @@ class SolutionBruteForce:
                     
         return longest
 ```
+
+**Time Complexity:** `O(N^2)`
+
+Checking every possible substring involves a nested loop structure, resulting in a quadratic time complexity.
+
+**Space Complexity:** `O(1)`
+
+The hash map is still limited to 26 uppercase English letters, requiring constant memory.

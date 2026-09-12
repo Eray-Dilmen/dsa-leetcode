@@ -1,7 +1,6 @@
-> 💡 **Not:** Bu soru **Two Pointers (İki İşaretçi)** kalıbı ile çözülmüştür. Kalıbın genel mantığı, kullanım senaryoları ve teorik detayları için [README.md](../README.md) dosyasına bakabilirsiniz.
+> 💡 **Not:** Bu soru **Two Pointers** kalıbı ile çözülmüştür. Kalıbın genel mantığı, kullanım senaryoları ve teorik detayları için [README.md](../README.md) dosyasına bakabilirsiniz.
 
 # [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
-
 
 You are given an integer array `height` where each element represents the height of a vertical line drawn on a coordinate plane. The distance between each line is 1 on the x-axis. Find two lines that, together with the x-axis, form a container capable of holding the maximum amount of water. Return this maximum area. You cannot slant the container.
 
@@ -19,6 +18,7 @@ You are given an integer array `height` where each element represents the height
 ---
 
 ### Türkçe Açıklama
+
 Sana, x ekseni üzerinde çizilmiş dikey çizgilerin yüksekliklerini temsil eden bir `height` dizisi veriliyor. Bu çizgilerden herhangi ikisini seçerek, x ekseniyle birlikte içine en çok su alabilecek kabı oluşturman ve bu maksimum su miktarını (alanı) döndürmen isteniyor. Kabı eğemezsin.
 
 ---
@@ -27,7 +27,9 @@ Sana, x ekseni üzerinde çizilmiş dikey çizgilerin yüksekliklerini temsil ed
 
 Su miktarını (alanı) maksimize etmek için **genişlik** (width) ve **yüksekliği** (height) dengelememiz gerekir. Suyun yüksekliği her zaman kısa olan çizgi tarafından sınırlandırılır (`min(height[left], height[right])`). 
 
-Algoritmaya en geniş durumu test ederek başlarız: İşaretçilerin birini en başa, diğerini en sona koyarız. Genişlik her adımda daralacağı için alanı artırmanın tek yolu daha uzun çizgiler bulmaktır. Bu yüzden mantıksal olarak her zaman **kısa olan çizgiyi** gösteren işaretçiyi içe doğru kaydırarak daha uzun bir çizgi bulmayı umarız.
+Algoritmaya en geniş durumu test ederek başlarız: Pointer'ların birini en başa, diğerini en sona koyarız.
+
+Genişlik her adımda daralacağı için alanı artırmanın tek yolu daha uzun çizgiler bulmaktır. Bu yüzden mantıksal olarak her zaman **kısa olan çizgiyi** gösteren pointer'ı içe doğru kaydırarak daha uzun bir çizgi bulmayı umarız.
 
 ```python
 class Solution:
@@ -53,9 +55,13 @@ class Solution:
         return max_area
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** $O(N)$ Diziyi iki uçtan içe doğru sadece bir kez tararız.
+**Time Complexity:** `O(N)`
 
-**Space Complexity (Alan Karmaşıklığı):** $O(1)$ Sadece alan ve işaretçi takibi için birkaç değişken kullanıldığından ekstra belleğe ihtiyaç duyulmaz.
+Diziyi iki uçtan içe doğru sadece bir kez tararız.
+
+**Space Complexity:** `O(1)`
+
+Sadece alan ve pointer takibi için birkaç değişken kullanıldığından ekstra belleğe ihtiyaç duyulmaz.
 
 --- 
 
@@ -79,6 +85,10 @@ class SolutionBruteForce:
         return max_area
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** $O(N^2)$ Olası tüm eşleşmeleri test etmek büyük veri setlerinde kodun zaman aşımına uğramasına (TLE) sebep olur.
+**Time Complexity:** `O(N^2)`
 
-**Space Complexity (Alan Karmaşıklığı):** $O(1)$ Ekstra bellek kullanılmaz.
+Olası tüm eşleşmeleri test etmek büyük veri setlerinde kodun zaman aşımına uğramasına (TLE) sebep olur.
+
+**Space Complexity:** `O(1)`
+
+Ekstra bellek kullanılmaz.

@@ -1,4 +1,4 @@
-> 💡 **Not:** Bu soru **Two Pointers (İki İşaretçi)** kalıbı ile çözülmüştür. Kalıbın genel mantığı, kullanım senaryoları ve teorik detayları için [README.md](../README.md) dosyasına bakabilirsiniz.
+> 💡 **Not:** Bu soru **Two Pointers** kalıbı ile çözülmüştür. Kalıbın genel mantığı, kullanım senaryoları ve teorik detayları için [README.md](../README.md) dosyasına bakabilirsiniz.
 
 # [15. 3Sum](https://leetcode.com/problems/3sum/)
 
@@ -37,8 +37,8 @@ Sana tam sayılardan oluşan bir `nums` dizisi veriliyor. Senden istenen, dizini
 
 ### 1. Two Pointers & Hash Set Yaklaşımı (Optimal)
 
-Üç sayının toplamını bulmak için diziyi sabit bir nokta (pivot) etrafında tarayabiliriz. İlk sayıyı (`nums[i]`) sabitleriz ve geriye kalan iki sayıyı bulmak için **Two Pointers** (İki İşaretçi) tekniğini kullanırız. 
-Bunun düzgün çalışabilmesi için önce diziyi `nums.sort()` ile küçükten büyüğe sıralamalıyız. Çözüm kümesinde tekrar eden üçlülerin olmaması için sonuçları bir **Set (Küme)** içerisine tuple (demet) olarak atarız.
+Üç sayının toplamını bulmak için diziyi sabit bir nokta (pivot) etrafında tarayabiliriz. İlk sayıyı (`nums[i]`) sabitleriz ve geriye kalan iki sayıyı bulmak için **Two Pointers** tekniğini kullanırız. 
+Bunun düzgün çalışabilmesi için önce diziyi `nums.sort()` ile küçükten büyüğe sıralamalıyız. Çözüm kümesinde tekrar eden üçlülerin olmaması için sonuçları bir **Set** içerisine tuple (demet) olarak atarız.
 
 > ⚠️ **Geçmişten Bir Ders: Liste içinde `not in` ile kopya aramak**
 > 
@@ -50,7 +50,7 @@ Bunun düzgün çalışabilmesi için önce diziyi `nums.sort()` ile küçükten
 > ```
 > Eğer `l` değişkenini bir Liste (`[]`) olarak tanımlayıp, her eşleşme bulduğunda `not in l` diyerek "bu üçlü listede var mı?" diye kontrol edersen, Python o listeyi baştan sona taramak zorunda kalır (`O(k)` zaman). Zaten iç içe döngüde olduğumuz için bu arama işlemi binlerce kez tekrarlanır ve kodun çok yavaşlayıp **Time Limit Exceeded (TLE)** hatası almasına sebep olur.
 > 
-> **Doğru Yöntem:** `l = set()` kullanarak eşleşmeleri kümeye eklersen (`l.add(...)`), Set veri yapısı Hash Table (Karma Tablo) mimarisi kullandığı için aynı elemandan olup olmadığını `O(1)` sürede anında tespit eder ve fazladan efor harcamadan kopyaları otomatik olarak reddeder.
+> **Doğru Yöntem:** `l = set()` kullanarak eşleşmeleri kümeye eklersen (`l.add(...)`), Set veri yapısı Hash Map mimarisi kullandığı için aynı elemandan olup olmadığını `O(1)` sürede anında tespit eder ve fazladan efor harcamadan kopyaları otomatik olarak reddeder.
 
 ```python
 class Solution:
@@ -78,9 +78,13 @@ class Solution:
         return list(l)
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n^2)` Diziyi sıralamak `O(n log n)` sürer. Sonrasında dıştaki `for` döngüsü `n` kez çalışırken, içindeki `while` döngüsü kalan elemanları taradığı için `O(n)` sürer. `O(n) * O(n) = O(n^2)` asimptotik olarak en baskın değer olduğu için genel karmaşıklık `O(n^2)` olur.
+**Time Complexity:** `O(n^2)` 
 
-**Space Complexity (Alan Karmaşıklığı):** `O(n)` Bulduğumuz geçerli üçlüleri benzersiz şekilde tutabilmek için `l` adında bir Hash Set oluşturuyoruz. En kötü durumda çözüm sayısı girdiye bağlı olarak artacağı için hafızada `O(n)` alan kaplar.
+Diziyi sıralamak `O(n log n)` sürer. Sonrasında dıştaki `for` döngüsü `n` kez çalışırken, içindeki `while` döngüsü kalan elemanları taradığı için `O(n)` sürer. `O(n) * O(n) = O(n^2)` asimptotik olarak en baskın değer olduğu için genel karmaşıklık `O(n^2)` olur.
+
+**Space Complexity:** `O(n)` 
+
+Bulduğumuz geçerli üçlüleri benzersiz şekilde tutabilmek için `l` adında bir Hash Set oluşturuyoruz. En kötü durumda çözüm sayısı girdiye bağlı olarak artacağı için hafızada `O(n)` alan kaplar.
 
 --- 
 

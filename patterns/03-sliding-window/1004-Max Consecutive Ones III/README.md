@@ -2,7 +2,6 @@
 
 # [1004. Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/)
 
-**Problem Statement**
 Given a binary array `nums` and an integer `k`, return the maximum number of consecutive `1`'s in the array if you can flip at most `k` `0`'s.
 
 ### Example 1:
@@ -21,13 +20,14 @@ Given a binary array `nums` and an integer `k`, return the maximum number of con
 
 ### 1. Sliding Window Approach (Optimal)
 
-We use a sliding window defined by two pointers, `l` (left) and `r` (right). We expand the window by moving `r` to the right. If we encounter a `0`, we increment our `num_zeros` count. When `num_zeros` exceeds `k`, the window becomes invalid, so we shrink it by moving `l` to the right until we drop a `0` out of the window. We constantly update the maximum window size.
+* We use a sliding window defined by two pointers, `l` (left) and `r` (right). 
+* We expand the window by moving `r` to the right. If we encounter a `0`, we increment our `num_zeros` count[cite: 29]. 
+* When `num_zeros` exceeds `k`, the window becomes invalid, so we shrink it by moving `l` to the right until we drop a `0` out of the window[cite: 29]. 
+* We constantly update the maximum window size[cite: 29].
 
 ```python
 class Solution:
     def longestOnes(self, nums: list[int], k: int) -> int:
-        # Time Complexity: O(N)
-        # Space Complexity: O(1)
         max_w = 0
         num_zeros = 0
         n = len(nums)
@@ -48,17 +48,25 @@ class Solution:
         return max_w
 ```
 
+**Time Complexity:** `O(N)`
+
+Both the left and right pointers traverse the array at most once, making it a linear time operation[cite: 29].
+
+**Space Complexity:** `O(1)`
+
+Only a few integer variables are used to keep track of indices and counts, requiring no extra memory[cite: 29].
+
 --- 
 
 ### 2. Nested Loops Approach (Brute Force)
 
-We can check every possible subarray starting from each index. For each starting index, we expand a subarray and count the zeros. If the zero count exceeds `k`, we break and move to the next starting index. This results in a quadratic time complexity.
+* We can check every possible subarray starting from each index[cite: 29]. 
+* For each starting index, we expand a subarray and count the zeros[cite: 29]. 
+* If the zero count exceeds `k`, we break and move to the next starting index[cite: 29]. 
 
 ```python
 class SolutionBruteForce:
     def longestOnes(self, nums: list[int], k: int) -> int:
-        # Time Complexity: O(N^2)
-        # Space Complexity: O(1)
         max_w = 0
         n = len(nums)
 
@@ -73,3 +81,11 @@ class SolutionBruteForce:
                 
         return max_w
 ```
+
+**Time Complexity:** `O(N^2)`
+
+This results in a quadratic time complexity because of the nested loop checking all subarrays[cite: 29].
+
+**Space Complexity:** `O(1)`
+
+No additional space is allocated beyond basic variables[cite: 29].

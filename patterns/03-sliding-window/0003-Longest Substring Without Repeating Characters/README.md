@@ -2,7 +2,6 @@
 
 # [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
-**Problem Statement**
 Given a string `s`, find the length of the longest substring without duplicate characters.
 
 ### Example 1:
@@ -24,15 +23,15 @@ Given a string `s`, find the length of the longest substring without duplicate c
 
 ### 1. Sliding Window with Set Approach (Optimal)
 
-We use two pointers, `l` (left) and `r` (right), to represent a sliding window of unique characters. We expand the window by moving `r` to the right and adding each character to a `HashSet`. 
-
-If we encounter a character at `r` that is already in our set, it means we have a duplicate. To fix this, we must shrink our window from the left. We repeatedly remove the character at index `l` from the set and increment `l` until the duplicate character is completely removed from our current window. After ensuring the window only contains unique characters, we add the new character at `r` to the set and update our maximum recorded length.
+* We use two pointers, `l` (left) and `r` (right), to represent a sliding window of unique characters. 
+* We expand the window by moving `r` to the right and adding each character to a `Set`. 
+* If we encounter a character at `r` that is already in our `Set`, it means we have a duplicate. To fix this, we must shrink our window from the left. 
+* We repeatedly remove the character at index `l` from the `Set` and increment `l` until the duplicate character is completely removed from our current window. 
+* After ensuring the window only contains unique characters, we add the new character at `r` to the `Set` and update our maximum recorded length.
 
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        # Time Complexity: O(N)
-        # Space Complexity: O(min(M, N)) where M is the charset size
         l = 0
         longest = 0
         sett = set()
@@ -49,17 +48,25 @@ class Solution:
         return longest
 ```
 
+**Time Complexity:** `O(N)`
+
+We traverse the string at most twice (once by the `r` pointer and once by the `l` pointer). This results in a linear time complexity[cite: 27].
+
+**Space Complexity:** `O(min(M, N))`
+
+The `Set` stores the unique characters in the current window. The space is bounded by the size of the string `N` and the size of the character set `M`[cite: 27].
+
 --- 
 
 ### 2. Nested Loops Approach (Brute Force)
 
-We can check every possible substring by using two nested loops. The outer loop picks a starting index, and the inner loop expands the substring character by character. We use a set to keep track of characters in the current substring. If a character repeats, we immediately stop expanding that specific substring and move to the next starting index. This avoids O(N^3) time but still results in an inefficient O(N^2) complexity.
+* We can check every possible substring by using two nested loops. The outer loop picks a starting index, and the inner loop expands the substring character by character. 
+* We use a `Set` to keep track of characters in the current substring. 
+* If a character repeats, we immediately stop expanding that specific substring and move to the next starting index. This avoids `O(N^3)` time but still results in an inefficient `O(N^2)` complexity.
 
 ```python
 class SolutionBruteForce:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        # Time Complexity: O(N^2)
-        # Space Complexity: O(min(M, N))
         max_len = 0
         n = len(s)
         
@@ -73,3 +80,11 @@ class SolutionBruteForce:
                 
         return max_len
 ```
+
+**Time Complexity:** `O(N^2)`
+
+Checking every possible substring starting from each index requires expanding a nested loop, leading to a quadratic time complexity[cite: 27].
+
+**Space Complexity:** `O(min(M, N))`
+
+We use a `Set` to track characters for each substring being evaluated[cite: 27].

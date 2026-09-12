@@ -2,7 +2,6 @@
 
 # [16. 3Sum Closest](https://leetcode.com/problems/3sum-closest/)
 
-**Problem Statement**
 Given an integer array `nums` of length `n` and an integer `target`, find three integers in `nums` such that the sum is closest to `target`.
 Return the sum of the three integers.
 You may assume that each input would have exactly one solution.
@@ -20,15 +19,14 @@ You may assume that each input would have exactly one solution.
 
 ### 1. Sorting & Two Pointers Approach (Optimal)
 
-This approach is highly similar to the standard 3Sum problem. By sorting the array first, we can iterate through the array and fix one number at a time (`nums[i]`). Then, we use the Two Pointers technique (`lo` and `hi`) on the remaining portion of the array to find the other two numbers. 
-
-Instead of looking for an exact match, we track the `closest_sum` by comparing the absolute difference between the current sum and the target `abs(cur_sum - target)`. If the current sum perfectly matches the target, we return it immediately. Otherwise, we adjust the pointers based on whether the sum is too small or too large.
+* This approach is highly similar to the standard 3Sum problem. By sorting the array first, we can iterate through the array and fix one number at a time (`nums[i]`). 
+* Then, we use the Two Pointers technique (`lo` and `hi`) on the remaining portion of the array to find the other two numbers. 
+* Instead of looking for an exact match, we track the `closest_sum` by comparing the absolute difference between the current sum and the target `abs(cur_sum - target)`. 
+* If the current sum perfectly matches the target, we return it immediately. Otherwise, we adjust the pointers based on whether the sum is too small or too large.
 
 ```python
 class Solution:
     def threeSumClosest(self, nums: list[int], target: int) -> int:
-        # Time Complexity: O(N^2)
-        # Space Complexity: O(1)
         nums.sort()
         n = len(nums)
         closest_sum = float('inf')
@@ -54,22 +52,24 @@ class Solution:
         return closest_sum
 ```
 
-**Time Complexity:** $O(N^2)$
-Sorting the array takes $O(N \log N)$. The outer loop runs $O(N)$ times, and the inner Two Pointers loop takes $O(N)$ time. The total time complexity is bounded by $O(N^2)$.
-**Space Complexity:** $O(1)$
+**Time Complexity:** `O(N^2)`
+
+Sorting the array takes `O(N log N)`. The outer loop runs `O(N)` times, and the inner Two Pointers loop takes `O(N)` time. The total time complexity is bounded by `O(N^2)`.
+
+**Space Complexity:** `O(1)`
+
 We only use a few integer variables (`closest_sum`, `cur_sum`, `lo`, `hi`), requiring constant extra memory (ignoring the internal memory used by the sorting algorithm).
 
 --- 
 
 ### 2. Brute Force Approach (Alternative)
 
-The brute force method checks every possible triplet combination using three nested loops. It calculates the sum for each triplet and updates the closest sum if a better one is found. 
+* The brute force method checks every possible triplet combination using three nested loops. 
+* It calculates the sum for each triplet and updates the closest sum if a better one is found. 
 
 ```python
 class SolutionBruteForce:
     def threeSumClosest(self, nums: list[int], target: int) -> int:
-        # Time Complexity: O(N^3)
-        # Space Complexity: O(1)
         n = len(nums)
         closest_sum = float('inf')
         
@@ -83,7 +83,10 @@ class SolutionBruteForce:
         return closest_sum
 ```
 
-**Time Complexity:** $O(N^3)$
+**Time Complexity:** `O(N^3)`
+
 Checking all possible triplets takes cubic time.
-**Space Complexity:** $O(1)$
+
+**Space Complexity:** `O(1)`
+
 No extra memory structures are used.

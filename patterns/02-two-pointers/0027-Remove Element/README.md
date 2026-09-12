@@ -2,7 +2,6 @@
 
 # [27. Remove Element](https://leetcode.com/problems/remove-element/)
 
-**Problem Statement**
 Suppose you have an integer array `nums` and a specific integer `val`. Your objective is to eliminate all instances of `val` from the array `nums` modifying it strictly in-place (without allocating another array). The order of the kept elements can be changed. You must return `k`, which represents the count of elements that are not equal to `val`. The judging system will verify that the first `k` positions of your array contain these valid elements.
 
 ### Example 1:
@@ -24,8 +23,6 @@ The `for` loop acts as our fast pointer (`i`), iterating through every single el
 ```python
 class Solution:
     def removeElement(self, nums: list[int], val: int) -> int:
-        # Time Complexity: O(N)
-        # Space Complexity: O(1)
         k = 0
         for i in range(len(nums)):
             if nums[i] != val:
@@ -33,6 +30,14 @@ class Solution:
                 k += 1
         return k
 ```
+
+**Time Complexity:** `O(N)`
+
+We traverse the array exactly once with the `for` loop, making it a linear time operation.
+
+**Space Complexity:** `O(1)`
+
+We only use an integer variable `k` for tracking the index, and we modify the array strictly in-place, so no extra memory is allocated.
 
 --- 
 
@@ -43,9 +48,15 @@ We can repeatedly use Python's built-in `in` operator and `remove()` method to f
 ```python
 class SolutionBruteForce:
     def removeElement(self, nums: list[int], val: int) -> int:
-        # Time Complexity: O(N^2)
-        # Space Complexity: O(1)
         while val in nums:
             nums.remove(val)
         return len(nums)
 ```
+
+**Time Complexity:** `O(N^2)`
+
+The `in` operator takes `O(N)` time to search, and the `remove()` method also takes `O(N)` time to shift elements left. Doing this repeatedly inside a `while` loop leads to a quadratic time complexity.
+
+**Space Complexity:** `O(1)`
+
+Despite being slow, this method still modifies the list in-place without needing extra data structures.

@@ -2,7 +2,6 @@
 
 # [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
 
-**Problem Statement**
 Given `n` non-negative integers representing an elevation map where the width of each bar is `1`, compute how much water it can trap after raining.
 
 ### Example 1:
@@ -20,21 +19,20 @@ Given `n` non-negative integers representing an elevation map where the width of
 
 ### 1. Two Pointers Approach (Optimal)
 
-The amount of water a single block can trap is determined by the minimum of the highest walls to its left and right, minus its own height. Instead of calculating the absolute maximums for every block beforehand, we can use two pointers from both ends. 
-
-By maintaining a `leftMax` and a `rightMax`, we can decide which side securely bounds the water. If `leftMax < rightMax`, we know for a fact that the water level at the `left` pointer is bounded by `leftMax`, regardless of what happens in the middle. We calculate the trapped water for the `left` pointer, move it inward, and repeat. This allows us to calculate the trapped water on the fly, reducing the space complexity to $O(1)$.
+* The amount of water a single block can trap is determined by the minimum of the highest walls to its left and right, minus its own height. 
+* Instead of calculating the absolute maximums for every block beforehand, we can use two pointers from both ends. 
+* By maintaining a `leftMax` and a `rightMax`, we can decide which side securely bounds the water. If `leftMax < rightMax`, we know for a fact that the water level at the `left` pointer is bounded by `leftMax`, regardless of what happens in the middle. 
+* We calculate the trapped water for the `left` pointer, move it inward, and repeat. This allows us to calculate the trapped water on the fly, reducing the space complexity to `O(1)`.
 
 ```python
 class Solution:
     def trap(self, height: list[int]) -> int:
-        # Space Complexity = O(1) -> No extra arrays used
         l = 0
         r = len(height) - 1
         leftMax = height[l]
         rightMax = height[r]
         res = 0
         
-        # Time Complexity = O(N) -> Single pass through the array
         while l < r:
             if leftMax < rightMax:
                 l += 1
@@ -48,29 +46,31 @@ class Solution:
         return res
 ```
 
-**Time Complexity:** $O(N)$
+**Time Complexity:** `O(N)`
+
 The two pointers iterate through the array exactly once, meeting in the middle.
-**Space Complexity:** $O(1)$
-Only a few variables (`l`, `r`, `leftMax`, `rightMax`, `res`) are used, requiring constant extra memory.
+
+**Space Complexity:** `O(1)`
+
+Only a few variables (`l`, `r`, `leftMax`, `rightMax`, `res`) are used, requiring constant extra memory. No extra arrays are utilized.
 
 --- 
 
 ### 2. Dynamic Programming / Prefix Arrays Approach (Alternative)
 
-Instead of evaluating on the fly, we can precompute the maximum wall height to the left and the maximum wall height to the right for every single position in the array. We store these values in two separate arrays (`max_left` and `max_right`). Then, we iterate through the array one last time to calculate the trapped water at each index. 
-
-While easier to conceptualize, storing these precomputed values forces us to use extra memory.
+* Instead of evaluating on the fly, we can precompute the maximum wall height to the left and the maximum wall height to the right for every single position in the array. 
+* We store these values in two separate arrays (`max_left` and `max_right`). 
+* Then, we iterate through the array one last time to calculate the trapped water at each index. 
+* While easier to conceptualize, storing these precomputed values forces us to use extra memory.
 
 ```python
 class SolutionAlternative:
     def trap(self, height: list[int]) -> int:
-        # Space Complexity = O(N) -> Allocating two arrays of size N
         l_wall = r_wall = 0
         n = len(height)
         max_left = [0] * n
         max_right = [0] * n
         
-        # Time Complexity = O(N)
         for i in range(n):
             j = -i - 1
             max_left[i] = l_wall
@@ -86,10 +86,13 @@ class SolutionAlternative:
         return summ
 ```
 
-**Time Complexity:** $O(N)$
-We iterate through the array a few times, which simplifies to $O(N)$.
-**Space Complexity:** $O(N)$
-We allocate two additional arrays of size $N$ (`max_left` and `max_right`).
+**Time Complexity:** `O(N)`
+
+We iterate through the array a few times, which simplifies to `O(N)`.
+
+**Space Complexity:** `O(N)`
+
+We allocate two additional arrays of size N (`max_left` and `max_right`).
 
 ---
 
@@ -100,11 +103,9 @@ For every element in the array, we can iterate all the way to its left to find t
 ```python
 class SolutionBruteForce:
     def trap(self, height: list[int]) -> int:
-        # Space Complexity = O(1)
         res = 0
         n = len(height)
         
-        # Time Complexity = O(N^2)
         for i in range(n):
             left_max = max(height[:i+1]) if i >= 0 else 0
             right_max = max(height[i:]) if i < n else 0
@@ -113,7 +114,10 @@ class SolutionBruteForce:
         return res
 ```
 
-**Time Complexity:** $O(N^2)$
-For each of the $N$ elements, we scan the rest of the array to find the maximums. This leads to a quadratic time complexity, resulting in a Time Limit Exceeded (TLE) error.
-**Space Complexity:** $O(1)$
+**Time Complexity:** `O(N^2)`
+
+For each of the N elements, we scan the rest of the array to find the maximums. This leads to a quadratic time complexity, resulting in a Time Limit Exceeded (TLE) error.
+
+**Space Complexity:** `O(1)`
+
 No extra memory is utilized beyond basic variables.

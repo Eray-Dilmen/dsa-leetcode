@@ -1,8 +1,7 @@
-> 💡 **Not:** Bu soru **Sliding Window (Kayan Pencere)** kalıbı ile çözülmüştür. Kalıbın genel mantığı, kullanım senaryoları ve teorik detayları için [README.md](../README.md) dosyasına bakabilirsiniz.
+> 💡 **Not:** Bu soru **Sliding Window** kalıbı ile çözülmüştür. Kalıbın genel mantığı, kullanım senaryoları ve teorik detayları için [README.md](../README.md) dosyasına bakabilirsiniz.
 
 # [424. Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
 
-**Problem Statement**
 You are given a string `s` and an integer `k`. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most `k` times.
 
 Return the length of the longest substring containing the same letter you can get after performing the above operations.
@@ -21,22 +20,23 @@ Return the length of the longest substring containing the same letter you can ge
 
 ---
 
-**Türkçe Açıklama**
+### Türkçe Açıklama
+
 Sana sadece büyük İngilizce harflerden oluşan bir `s` metni ve `k` tam sayısı veriliyor. En fazla `k` adet harfi başka bir harfe değiştirme hakkın var. Senden istenen, bu değiştirme işlemini yaparak elde edebileceğin, tamamen aynı harflerden oluşan en uzun alt dizgenin (substring) uzunluğunu bulmandır.
 
 ---
 
 ### 1. Frekans Haritası ile Sliding Window Yaklaşımı (Optimal)
 
-Bu soruyu çözerken `l` (sol) ve `r` (sağ) işaretçileriyle bir kayan pencere (sliding window) oluşturuyoruz. Pencerenin içindeki karakterlerin frekansını (hangi harften kaç tane olduğunu) bir Sözlük (`count`) yardımıyla tutuyoruz. Ayrıca penceredeki en çok tekrar eden harfin sayısını da `max_freq` değişkeninde saklıyoruz.
-
-Sağ işaretçi `r` ile metni tararken şu mantığı kuruyoruz: Mevcut pencerenin uzunluğundan, penceredeki en sık geçen harfin sayısını çıkarırsak, "değiştirmemiz gereken harf sayısını" buluruz `(pencere_uzunluğu - max_freq)`. Eğer bu değiştirmemiz gereken harf sayısı bize verilen `k` hakkını aşarsa, mevcut penceremiz geçersiz demektir. Bu durumda pencereyi geçerli hale getirmek için sol işaretçiyi (`l`) bir adım sağa kaydırarak pencereyi sol taraftan daraltırız. Her geçerli pencere adımında ise en uzun boyutu (`longest`) güncelleriz.
+* Bu soruyu çözerken `l` (sol) ve `r` (sağ) pointer'larıyla bir Sliding Window oluşturuyoruz. 
+* Pencerenin içindeki karakterlerin frekansını (hangi harften kaç tane olduğunu) bir Sözlük (`count`) yardımıyla tutuyoruz. Ayrıca penceredeki en çok tekrar eden harfin sayısını da `max_freq` değişkeninde saklıyoruz.
+* Sağ pointer `r` ile metni tararken şu mantığı kuruyoruz: Mevcut pencerenin uzunluğundan, penceredeki en sık geçen harfin sayısını çıkarırsak, "değiştirmemiz gereken harf sayısını" buluruz `(r - l + 1) - max_freq`. 
+* Eğer bu değiştirmemiz gereken harf sayısı bize verilen `k` hakkını aşarsa, mevcut penceremiz geçersiz demektir. 
+* Bu durumda pencereyi geçerli hale getirmek için sol pointer'ı (`l`) bir adım sağa kaydırarak pencereyi sol taraftan daraltırız. Her geçerli pencere adımında ise en uzun boyutu (`longest`) güncelleriz.
 
 ```python
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        # Time Complexity: O(N)
-        # Space Complexity: O(26) -> O(1)
         l = 0
         longest = 0
         count = {}
@@ -55,17 +55,26 @@ class Solution:
         return longest
 ```
 
+**Time Complexity:** `O(N)`
+
+Sağ ve sol pointer'lar diziyi en fazla birer kez tarar. Bu yüzden zaman karmaşıklığı lineerdir.
+
+**Space Complexity:** `O(1)`
+
+Sözlük (Hash Map) en fazla 26 büyük İngilizce harfi tutacağı için kullanılan alan `O(26)` yani `O(1)` (sabit) kabul edilir.
+
 --- 
 
 ### 2. İç İçe Döngüler Yaklaşımı (Brute Force)
 
-Metindeki her bir indexten başlayan tüm alt dizgeleri iç içe iki döngü ile tek tek kontrol edebiliriz. Her alt dizge için karakterlerin frekansını hesaplar, en sık geçen karakteri buluruz. Eğer "alt dizgenin boyutu - en sık geçen karakterin sayısı" değeri `k`'ya eşit veya ondan küçükse, bu alt dizge bizim için geçerlidir. `k` sınırını aşan bir duruma geldiğimizde ise o alt dizgeyi daha fazla uzatmadan durdurup (break), bir sonraki başlangıç elemanına geçeriz. İç içe döngüler kullanıldığı için bu algoritma O(N^2) zaman karmaşıklığına sahiptir.
+* Metindeki her bir indexten başlayan tüm alt dizgeleri iç içe iki döngü ile tek tek kontrol edebiliriz. 
+* Her alt dizge için karakterlerin frekansını hesaplar, en sık geçen karakteri buluruz. 
+* Eğer "alt dizgenin boyutu - en sık geçen karakterin sayısı" değeri `k`'ya eşit veya ondan küçükse, bu alt dizge bizim için geçerlidir. 
+* `k` sınırını aşan bir duruma geldiğimizde ise o alt dizgeyi daha fazla uzatmadan durdurup (`break`), bir sonraki başlangıç elemanına geçeriz.
 
 ```python
 class SolutionBruteForce:
     def characterReplacement(self, s: str, k: int) -> int:
-        # Time Complexity: O(N^2)
-        # Space Complexity: O(26) -> O(1)
         longest = 0
         n = len(s)
         
@@ -83,3 +92,11 @@ class SolutionBruteForce:
                     
         return longest
 ```
+
+**Time Complexity:** `O(N^2)`
+
+İç içe döngülerle tüm olası alt dizgeleri taramak, karesel zaman karmaşıklığı yaratır.
+
+**Space Complexity:** `O(1)`
+
+Her alt dizge için oluşturulan Sözlük boyutu 26 karakterle sınırlı olduğu için ekstra alan sabit kalır.

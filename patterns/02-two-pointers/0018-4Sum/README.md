@@ -2,7 +2,6 @@
 
 # [18. 4Sum](https://leetcode.com/problems/4sum/)
 
-**Problem Statement**
 Given an array `nums` of `n` integers, return an array of all the unique quadruplets `[nums[a], nums[b], nums[c], nums[d]]` such that:
 * `0 <= a, b, c, d < n`
 * `a`, `b`, `c`, and `d` are distinct.
@@ -22,21 +21,18 @@ You may return the answer in any order.
 
 ### 1. Sorting & Two Pointers Approach (Optimal)
 
-This is the optimal solution for the 4Sum problem. It builds on the logic of 3Sum. By sorting the array first, we can fix the first two numbers using two nested loops (`i` and `j`), and then use the **Two Pointers** technique (`lo` and `hi`) to find the remaining two numbers.
-
+This is the optimal solution for the 4Sum problem. It builds on the logic of 3Sum. 
+By sorting the array first, we can fix the first two numbers using two nested loops (`i` and `j`), and then use the **Two Pointers** technique (`lo` and `hi`) to find the remaining two numbers.
 Sorting is crucial because it allows us to easily skip duplicate values, ensuring that our final result only contains unique quadruplets without needing an extra Hash Set.
 
 ```python
 class Solution:
     def fourSum(self, nums: list[int], target: int) -> list[list[int]]:
-        # Space Complexity = O(1) or O(N) -> Depending on sorting algorithm memory (excluding output array)
         n = len(nums)
         answer = []
         
-        # Time Complexity = O(N log N) -> Sorting the array
         nums.sort()
         
-        # Time Complexity = O(N^3) -> Two nested loops O(N^2) * Two Pointers O(N)
         for i in range(n - 3):
             # Skip duplicates for the first number
             if i > 0 and nums[i] == nums[i - 1]:
@@ -70,25 +66,27 @@ class Solution:
         return answer
 ```
 
-**Time Complexity:** $O(N^3)$
-Sorting takes $O(N \log N)$. The two outer loops take $O(N^2)$ time, and the inner Two Pointers loop takes $O(N)$ time. This yields an overall time complexity of $O(N^3)$, which is optimal for 4Sum.
-**Space Complexity:** $O(1)$ or $O(N)$
-We only use variables for tracking indices. However, some sorting algorithms (like Timsort in Python) take $O(N)$ space under the hood. The space for the `answer` array is not strictly counted towards auxiliary complexity.
+**Time Complexity:** `O(N^3)`
+
+Sorting takes `O(N log N)`. The two outer loops take `O(N^2)` time, and the inner Two Pointers loop takes `O(N)` time. This yields an overall time complexity of `O(N^3)`, which is optimal for 4Sum.
+
+**Space Complexity:** `O(1)` or `O(N)`
+
+We only use variables for tracking indices. However, some sorting algorithms (like Timsort in Python) take `O(N)` space under the hood. The space for the `answer` array is not strictly counted towards auxiliary complexity.
 
 --- 
 
 ### 2. Brute Force Approach (Time Limit Exceeded)
 
-The simplest approach is to use four nested loops to check every possible combination of four numbers. To handle the "unique quadruplets" constraint, we can sort each valid combination and add it to a Hash Set. 
+The simplest approach is to use four nested loops to check every possible combination of four numbers. 
+To handle the "unique quadruplets" constraint, we can sort each valid combination and add it to a Hash Set. 
 
 ```python
 class SolutionBruteForce:
     def fourSum(self, nums: list[int], target: int) -> list[list[int]]:
-        # Space Complexity = O(N) -> Using a Set to store unique quadruplets
         n = len(nums)
         unique_quads = set()
         
-        # Time Complexity = O(N^4) -> Four nested loops
         for i in range(n):
             for j in range(i + 1, n):
                 for k in range(j + 1, n):
@@ -101,7 +99,10 @@ class SolutionBruteForce:
         return [list(q) for q in unique_quads]
 ```
 
-**Time Complexity:** $O(N^4)$
-Checking every combination of 4 elements takes $O(N^4)$. For $N=200$ (as per constraints), this will definitely result in a Time Limit Exceeded (TLE) error.
-**Space Complexity:** $O(N)$
+**Time Complexity:** `O(N^4)`
+
+Checking every combination of 4 elements takes `O(N^4)`. For N=200 (as per constraints), this will definitely result in a Time Limit Exceeded (TLE) error.
+
+**Space Complexity:** `O(N)`
+
 The Hash Set requires memory proportional to the number of unique valid quadruplets found.

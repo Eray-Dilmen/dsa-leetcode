@@ -2,7 +2,6 @@
 
 # [209. Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
 
-**Problem Statement**
 Given an array of positive integers `nums` and a positive integer `target`, return the minimal length of a subarray whose sum is greater than or equal to `target`. If there is no such subarray, return `0` instead.
 
 ### Example 1:
@@ -22,15 +21,14 @@ Given an array of positive integers `nums` and a positive integer `target`, retu
 
 ### 1. Sliding Window Approach (Optimal)
 
-We use a sliding window defined by two pointers, `l` (left) and `r` (right). As we iterate through the array with our right pointer `r`, we continuously add the current element to a running total (`summ`). 
-
-Because all numbers in the array are positive, we know that adding more elements will only increase the sum. Once our `summ` becomes greater than or equal to the `target`, our current window is valid. We then try to shrink this valid window from the left to find the strictly minimum length. We do this by updating our minimum length variable (`minn`), subtracting the element at the left pointer (`nums[l]`) from our sum, and incrementing `l`. We repeat this shrinking process as long as the window's sum remains valid.
+* We use a sliding window defined by two pointers, `l` (left) and `r` (right). As we iterate through the array with our right pointer `r`, we continuously add the current element to a running total (`summ`). 
+* Because all numbers in the array are positive, we know that adding more elements will only increase the sum. Once our `summ` becomes greater than or equal to the `target`, our current window is valid. 
+* We then try to shrink this valid window from the left to find the strictly minimum length. We do this by updating our minimum length variable (`minn`), subtracting the element at the left pointer (`nums[l]`) from our sum, and incrementing `l`. 
+* We repeat this shrinking process as long as the window's sum remains valid.
 
 ```python
 class Solution:
     def minSubArrayLen(self, target: int, nums: list[int]) -> int:
-        # Time Complexity: O(N)
-        # Space Complexity: O(1)
         minn = float('inf')
         summ = 0
         l = 0
@@ -46,17 +44,24 @@ class Solution:
         return minn if minn != float('inf') else 0
 ```
 
+**Time Complexity:** `O(N)`
+
+Each element is visited at most twice (once by the `r` pointer and once by the `l` pointer)[cite: 29].
+
+**Space Complexity:** `O(1)`
+
+We only use a few integer variables, so no extra memory is allocated[cite: 29].
+
 --- 
 
 ### 2. Nested Loops Approach (Brute Force)
 
-We can check all possible subarrays using two nested loops. The outer loop selects the starting index, and the inner loop expands the subarray to the right, maintaining a running sum. As soon as the sum reaches or exceeds the `target`, we record the length, break the inner loop (since any further expansion would only increase the length unnecessarily due to positive integers), and move to the next starting index.
+* We can check all possible subarrays using two nested loops. The outer loop selects the starting index, and the inner loop expands the subarray to the right, maintaining a running sum. 
+* As soon as the sum reaches or exceeds the `target`, we record the length, break the inner loop (since any further expansion would only increase the length unnecessarily due to positive integers), and move to the next starting index.
 
 ```python
 class SolutionBruteForce:
     def minSubArrayLen(self, target: int, nums: list[int]) -> int:
-        # Time Complexity: O(N^2)
-        # Space Complexity: O(1)
         minn = float('inf')
         n = len(nums)
         
@@ -70,3 +75,11 @@ class SolutionBruteForce:
                     
         return minn if minn != float('inf') else 0
 ```
+
+**Time Complexity:** `O(N^2)`
+
+For each starting index, we iterate through the rest of the array[cite: 29].
+
+**Space Complexity:** `O(1)`
+
+No extra data structures are used[cite: 29].

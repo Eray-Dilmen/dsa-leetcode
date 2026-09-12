@@ -1,8 +1,7 @@
-> 💡 **Not:** Bu soru **Sliding Window (Kayan Pencere)** kalıbı ile çözülmüştür. Kalıbın genel mantığı, kullanım senaryoları ve teorik detayları için [README.md](../README.md) dosyasına bakabilirsiniz.
+> 💡 **Not:** Bu soru **Sliding Window** kalıbı ile çözülmüştür. Kalıbın genel mantığı, kullanım senaryoları ve teorik detayları için [README.md](../README.md) dosyasına bakabilirsiniz.
 
 # [1004. Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/)
 
-**Problem Statement**
 Given a binary array `nums` and an integer `k`, return the maximum number of consecutive `1`'s in the array if you can flip at most `k` `0`'s.
 
 ### Example 1:
@@ -19,20 +18,22 @@ Given a binary array `nums` and an integer `k`, return the maximum number of con
 
 ---
 
-**Türkçe Açıklama**
-Sana sadece 0 ve 1'lerden oluşan `nums` adında bir dizi ve bir `k` tam sayısı veriliyor. Senden istenen, en fazla `k` adet 0'ı 1'e çevirme hakkını kullanarak, dizide arka arkaya gelen 1'lerin sayısını maksimum yapman ve bu maksimum uzunluğu döndürmendir.
+### Türkçe Açıklama
+
+Sana sadece 0 ve 1'lerden oluşan `nums` adında bir dizi ve bir `k` tam sayısı veriliyor. Senden istenen, en fazla `k` adet 0'ı 1'e çevirme hakkını kullanarak, dizide arka arkaya gelen 1'lerin sayısını maksimum yapman ve bu maksimum uzunluğu döndürmendir[cite: 30].
 
 ---
 
 ### 1. Sliding Window Yaklaşımı (Optimal)
 
-Çözümde, `l` (sol) ve `r` (sağ) işaretçileriyle belirlenen bir kayan pencere (sliding window) kullanıyoruz. Sağ işaretçiyi (`r`) dizinin sonuna kadar ilerleterek penceremizi genişletiyoruz. Eğer karşılaştığımız eleman `0` ise, sıfır sayacımızı (`num_zeros`) artırıyoruz. Eğer pencere içindeki sıfır sayısı bize verilen `k` hakkını aşarsa, pencerenin sol tarafını (`l`), pencereden bir `0` çıkarana kadar sağa doğru daraltıyoruz. Her adımda pencerenin mevcut uzunluğunu hesaplayıp en büyük uzunluğu (`max_w`) güncelliyoruz.
+* Çözümde, `l` (sol) ve `r` (sağ) pointer'larıyla belirlenen bir Sliding Window kullanıyoruz. 
+* Sağ pointer'ı (`r`) dizinin sonuna kadar ilerleterek penceremizi genişletiyoruz. Eğer karşılaştığımız eleman `0` ise, sıfır sayacımızı (`num_zeros`) artırıyoruz[cite: 30]. 
+* Eğer pencere içindeki sıfır sayısı bize verilen `k` hakkını aşarsa, pencerenin sol tarafını (`l`), pencereden bir `0` çıkarana kadar sağa doğru daraltıyoruz[cite: 30]. 
+* Her adımda pencerenin mevcut uzunluğunu hesaplayıp en büyük uzunluğu (`max_w`) güncelliyoruz[cite: 30].
 
 ```python
 class Solution:
     def longestOnes(self, nums: list[int], k: int) -> int:
-        # Time Complexity: O(N)
-        # Space Complexity: O(1)
         max_w = 0
         num_zeros = 0
         n = len(nums)
@@ -53,17 +54,24 @@ class Solution:
         return max_w
 ```
 
+**Time Complexity:** `O(N)`
+
+Pointer'lar diziyi uçtan uca sadece bir kez taradığı için zaman karmaşıklığı lineerdir.
+
+**Space Complexity:** `O(1)`
+
+Ekstra bellek (dizi, sözlük vb.) kullanılmaz, yalnızca sayısal değişkenler tutulur.
+
 --- 
 
 ### 2. İç İçe Döngüler Yaklaşımı (Brute Force)
 
-Dizideki her bir elemandan başlayan tüm alt dizileri (subarrays) tek tek kontrol ederiz. Her alt dizi için 0'ları sayarız ve eğer 0 sayısı `k` sınırını aşarsa o alt diziyi kontrol etmeyi bırakıp bir sonraki başlangıç elemanına geçeriz. İç içe iki döngü kullanıldığı için zaman karmaşıklığı O(N^2) olur.
+* Dizideki her bir elemandan başlayan tüm alt dizileri (subarrays) tek tek kontrol ederiz[cite: 30]. 
+* Her alt dizi için 0'ları sayarız ve eğer 0 sayısı `k` sınırını aşarsa o alt diziyi kontrol etmeyi bırakıp bir sonraki başlangıç elemanına geçeriz[cite: 30]. 
 
 ```python
 class SolutionBruteForce:
     def longestOnes(self, nums: list[int], k: int) -> int:
-        # Time Complexity: O(N^2)
-        # Space Complexity: O(1)
         max_w = 0
         n = len(nums)
 
@@ -78,3 +86,11 @@ class SolutionBruteForce:
                 
         return max_w
 ```
+
+**Time Complexity:** `O(N^2)`
+
+İç içe iki döngü kullanıldığı için zaman karmaşıklığı karesel olur[cite: 30].
+
+**Space Complexity:** `O(1)`
+
+İlave bir veri yapısı tahsis edilmediğinden alan karmaşıklığı sabittir[cite: 30].
