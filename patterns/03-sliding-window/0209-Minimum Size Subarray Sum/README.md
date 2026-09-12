@@ -1,4 +1,4 @@
-> 💡 **Note:** This problem is solved using the **Sliding Window** pattern. For the general logic, use cases, and theoretical details of this pattern, refer to the [pattern README.md](../README.md).
+💡 **Note:** This problem is solved using the **Sliding Window** pattern. For the general logic, use cases, and theoretical details of this pattern, refer to the [pattern README.md](../README.md).
 
 # [209. Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
 
@@ -46,11 +46,11 @@ class Solution:
 
 **Time Complexity:** `O(N)`
 
-Each element is visited at most twice (once by the `r` pointer and once by the `l` pointer)[cite: 29].
+Each element is visited at most twice (once by the `r` pointer and once by the `l` pointer).
 
 **Space Complexity:** `O(1)`
 
-We only use a few integer variables, so no extra memory is allocated[cite: 29].
+We only use a few integer variables, so no extra memory is allocated.
 
 --- 
 
@@ -78,8 +78,8 @@ class SolutionBruteForce:
 
 **Time Complexity:** `O(N^2)`
 
-For each starting index, we iterate through the rest of the array[cite: 29].
+For each starting index, we iterate through the rest of the array.
 
 **Space Complexity:** `O(1)`
 
-No extra data structures are used[cite: 29].
+No extra data structures are used.

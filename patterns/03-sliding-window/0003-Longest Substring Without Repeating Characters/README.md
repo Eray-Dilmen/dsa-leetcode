@@ -1,4 +1,4 @@
-> 💡 **Note:** This problem is solved using the **Sliding Window** pattern. For the general logic, use cases, and theoretical details of this pattern, refer to the [pattern README.md](../README.md).
+💡 **Note:** This problem is solved using the **Sliding Window** pattern. For the general logic, use cases, and theoretical details of this pattern, refer to the [pattern README.md](../README.md).
 
 # [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
@@ -50,11 +50,11 @@ class Solution:
 
 **Time Complexity:** `O(N)`
 
-We traverse the string at most twice (once by the `r` pointer and once by the `l` pointer). This results in a linear time complexity[cite: 27].
+We traverse the string at most twice (once by the `r` pointer and once by the `l` pointer). This results in a linear time complexity.
 
 **Space Complexity:** `O(min(M, N))`
 
-The `Set` stores the unique characters in the current window. The space is bounded by the size of the string `N` and the size of the character set `M`[cite: 27].
+The `Set` stores the unique characters in the current window. The space is bounded by the size of the string `N` and the size of the character set `M`.
 
 --- 
 
@@ -83,8 +83,8 @@ class SolutionBruteForce:
 
 **Time Complexity:** `O(N^2)`
 
-Checking every possible substring starting from each index requires expanding a nested loop, leading to a quadratic time complexity[cite: 27].
+Checking every possible substring starting from each index requires expanding a nested loop, leading to a quadratic time complexity.
 
 **Space Complexity:** `O(min(M, N))`
 
-We use a `Set` to track characters for each substring being evaluated[cite: 27].
+We use a `Set` to track characters for each substring being evaluated.

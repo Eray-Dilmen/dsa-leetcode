@@ -20,16 +20,16 @@ Given a binary array `nums` and an integer `k`, return the maximum number of con
 
 ### Türkçe Açıklama
 
-Sana sadece 0 ve 1'lerden oluşan `nums` adında bir dizi ve bir `k` tam sayısı veriliyor. Senden istenen, en fazla `k` adet 0'ı 1'e çevirme hakkını kullanarak, dizide arka arkaya gelen 1'lerin sayısını maksimum yapman ve bu maksimum uzunluğu döndürmendir[cite: 30].
+Sana sadece 0 ve 1'lerden oluşan `nums` adında bir dizi ve bir `k` tam sayısı veriliyor. Senden istenen, en fazla `k` adet 0'ı 1'e çevirme hakkını kullanarak, dizide arka arkaya gelen 1'lerin sayısını maksimum yapman ve bu maksimum uzunluğu döndürmendir.
 
 ---
 
 ### 1. Sliding Window Yaklaşımı (Optimal)
 
 * Çözümde, `l` (sol) ve `r` (sağ) pointer'larıyla belirlenen bir Sliding Window kullanıyoruz. 
-* Sağ pointer'ı (`r`) dizinin sonuna kadar ilerleterek penceremizi genişletiyoruz. Eğer karşılaştığımız eleman `0` ise, sıfır sayacımızı (`num_zeros`) artırıyoruz[cite: 30]. 
-* Eğer pencere içindeki sıfır sayısı bize verilen `k` hakkını aşarsa, pencerenin sol tarafını (`l`), pencereden bir `0` çıkarana kadar sağa doğru daraltıyoruz[cite: 30]. 
-* Her adımda pencerenin mevcut uzunluğunu hesaplayıp en büyük uzunluğu (`max_w`) güncelliyoruz[cite: 30].
+* Sağ pointer'ı (`r`) dizinin sonuna kadar ilerleterek penceremizi genişletiyoruz. Eğer karşılaştığımız eleman `0` ise, sıfır sayacımızı (`num_zeros`) artırıyoruz. 
+* Eğer pencere içindeki sıfır sayısı bize verilen `k` hakkını aşarsa, pencerenin sol tarafını (`l`), pencereden bir `0` çıkarana kadar sağa doğru daraltıyoruz. 
+* Her adımda pencerenin mevcut uzunluğunu hesaplayıp en büyük uzunluğu (`max_w`) güncelliyoruz.
 
 ```python
 class Solution:
@@ -66,8 +66,8 @@ Ekstra bellek (dizi, sözlük vb.) kullanılmaz, yalnızca sayısal değişkenle
 
 ### 2. İç İçe Döngüler Yaklaşımı (Brute Force)
 
-* Dizideki her bir elemandan başlayan tüm alt dizileri (subarrays) tek tek kontrol ederiz[cite: 30]. 
-* Her alt dizi için 0'ları sayarız ve eğer 0 sayısı `k` sınırını aşarsa o alt diziyi kontrol etmeyi bırakıp bir sonraki başlangıç elemanına geçeriz[cite: 30]. 
+* Dizideki her bir elemandan başlayan tüm alt dizileri (subarrays) tek tek kontrol ederiz. 
+* Her alt dizi için 0'ları sayarız ve eğer 0 sayısı `k` sınırını aşarsa o alt diziyi kontrol etmeyi bırakıp bir sonraki başlangıç elemanına geçeriz. 
 
 ```python
 class SolutionBruteForce:
@@ -89,8 +89,8 @@ class SolutionBruteForce:
 
 **Time Complexity:** `O(N^2)`
 
-İç içe iki döngü kullanıldığı için zaman karmaşıklığı karesel olur[cite: 30].
+İç içe iki döngü kullanıldığı için zaman karmaşıklığı karesel olur.
 
 **Space Complexity:** `O(1)`
 
-İlave bir veri yapısı tahsis edilmediğinden alan karmaşıklığı sabittir[cite: 30].
+İlave bir veri yapısı tahsis edilmediğinden alan karmaşıklığı sabittir

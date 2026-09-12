@@ -1,4 +1,4 @@
-> 💡 **Not:** Bu soru **Sliding Window** kalıbı ile çözülmüştür. Kalıbın genel mantığı, kullanım senaryoları ve teorik detayları için [README.md](../README.md) dosyasına bakabilirsiniz.
+💡 **Not:** Bu soru **Sliding Window** kalıbı ile çözülmüştür. Kalıbın genel mantığı, kullanım senaryoları ve teorik detayları için [README.md](../README.md) dosyasına bakabilirsiniz.
 
 # [209. Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
 
@@ -21,7 +21,7 @@ Given an array of positive integers `nums` and a positive integer `target`, retu
 
 ### Türkçe Açıklama
 
-Sana sadece pozitif tam sayılardan oluşan bir `nums` dizisi ve pozitif bir `target` (hedef) sayısı veriliyor. Senden istenen, dizinin içindeki elemanların toplamı `target` sayısına eşit veya ondan büyük olan **en kısa** alt dizgenin (subarray) uzunluğunu bulmandır. Eğer böyle bir alt dizge yoksa geriye `0` döndürmelisin[cite: 30].
+Sana sadece pozitif tam sayılardan oluşan bir `nums` dizisi ve pozitif bir `target` (hedef) sayısı veriliyor. Senden istenen, dizinin içindeki elemanların toplamı `target` sayısına eşit veya ondan büyük olan **en kısa** alt dizgenin (subarray) uzunluğunu bulmandır. Eğer böyle bir alt dizge yoksa geriye `0` döndürmelisin.
 
 ---
 
@@ -85,8 +85,8 @@ class SolutionBruteForce:
 
 **Time Complexity:** `O(N^2)`
 
-Tüm indeksleri başlangıç noktası olarak alıp alt dizgeleri taradığımız için karesel bir büyüme olur[cite: 30].
+Tüm indeksleri başlangıç noktası olarak alıp alt dizgeleri taradığımız için karesel bir büyüme olur.
 
 **Space Complexity:** `O(1)`
 
-Ekstra veri yapısı ayrılmaz[cite: 30].
+Ekstra veri yapısı ayrılmaz.

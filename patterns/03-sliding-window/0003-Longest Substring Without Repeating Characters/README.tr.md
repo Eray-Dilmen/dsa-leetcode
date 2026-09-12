@@ -1,4 +1,4 @@
-> 💡 **Not:** Bu soru **Sliding Window** kalıbı ile çözülmüştür. Kalıbın genel mantığı, kullanım senaryoları ve teorik detayları için [README.md](../README.md) dosyasına bakabilirsiniz.
+💡 **Not:** Bu soru **Sliding Window** kalıbı ile çözülmüştür. Kalıbın genel mantığı, kullanım senaryoları ve teorik detayları için [README.md](../README.md) dosyasına bakabilirsiniz.
 
 # [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
@@ -23,7 +23,7 @@ Given a string `s`, find the length of the longest substring without duplicate c
 
 ### Türkçe Açıklama
 
-Sana bir `s` stringi (metin dizgesi) veriliyor. Senden istenen, içinde hiçbir karakterin tekrar etmediği **en uzun alt dizgenin (substring)** uzunluğunu bulmandır. (Alt dizge, metnin içinde kesintisiz olarak devam eden bir parçadır.)[cite: 28]
+Sana bir `s` stringi (metin dizgesi) veriliyor. Senden istenen, içinde hiçbir karakterin tekrar etmediği **en uzun alt dizgenin (substring)** uzunluğunu bulmandır. (Alt dizge, metnin içinde kesintisiz olarak devam eden bir parçadır.)
 
 ---
 
@@ -88,8 +88,8 @@ class SolutionBruteForce:
 
 **Time Complexity:** `O(N^2)`
 
-İç içe döngülerle tüm olası alt dizgeleri taramak, karesel zaman karmaşıklığı yaratır[cite: 28].
+İç içe döngülerle tüm olası alt dizgeleri taramak, karesel zaman karmaşıklığı yaratır.
 
 **Space Complexity:** `O(min(M, N))`
 
-Her bir alt dizgeyi oluştururken kullanılan `Set` nedeniyle ayrılan ekstra hafızadır[cite: 28].
+Her bir alt dizgeyi oluştururken kullanılan `Set` nedeniyle ayrılan ekstra hafızadır.

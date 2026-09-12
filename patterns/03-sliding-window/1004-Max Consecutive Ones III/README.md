@@ -21,9 +21,9 @@ Given a binary array `nums` and an integer `k`, return the maximum number of con
 ### 1. Sliding Window Approach (Optimal)
 
 * We use a sliding window defined by two pointers, `l` (left) and `r` (right). 
-* We expand the window by moving `r` to the right. If we encounter a `0`, we increment our `num_zeros` count[cite: 29]. 
-* When `num_zeros` exceeds `k`, the window becomes invalid, so we shrink it by moving `l` to the right until we drop a `0` out of the window[cite: 29]. 
-* We constantly update the maximum window size[cite: 29].
+* We expand the window by moving `r` to the right. If we encounter a `0`, we increment our `num_zeros` count. 
+* When `num_zeros` exceeds `k`, the window becomes invalid, so we shrink it by moving `l` to the right until we drop a `0` out of the window. 
+* We constantly update the maximum window size.
 
 ```python
 class Solution:
@@ -50,19 +50,19 @@ class Solution:
 
 **Time Complexity:** `O(N)`
 
-Both the left and right pointers traverse the array at most once, making it a linear time operation[cite: 29].
+Both the left and right pointers traverse the array at most once, making it a linear time operation.
 
 **Space Complexity:** `O(1)`
 
-Only a few integer variables are used to keep track of indices and counts, requiring no extra memory[cite: 29].
+Only a few integer variables are used to keep track of indices and counts, requiring no extra memory.
 
 --- 
 
 ### 2. Nested Loops Approach (Brute Force)
 
-* We can check every possible subarray starting from each index[cite: 29]. 
-* For each starting index, we expand a subarray and count the zeros[cite: 29]. 
-* If the zero count exceeds `k`, we break and move to the next starting index[cite: 29]. 
+* We can check every possible subarray starting from each index. 
+* For each starting index, we expand a subarray and count the zeros. 
+* If the zero count exceeds `k`, we break and move to the next starting index. 
 
 ```python
 class SolutionBruteForce:
@@ -84,8 +84,8 @@ class SolutionBruteForce:
 
 **Time Complexity:** `O(N^2)`
 
-This results in a quadratic time complexity because of the nested loop checking all subarrays[cite: 29].
+This results in a quadratic time complexity because of the nested loop checking all subarrays.
 
 **Space Complexity:** `O(1)`
 
-No additional space is allocated beyond basic variables[cite: 29].
+No additional space is allocated beyond basic variables.
