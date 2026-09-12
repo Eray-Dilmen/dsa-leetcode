@@ -2,7 +2,7 @@
 
 # [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
 
-**Problem Statement**
+
 Determine if a `9 x 9` Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
 1. Each row must contain the digits `1-9` without repetition.
 2. Each column must contain the digits `1-9` without repetition.
@@ -40,7 +40,7 @@ Note: A Sudoku board (partially filled) could be valid but is not necessarily so
 
 ---
 
-**Türkçe Açıklama**
+### Türkçe Açıklama
 Sana `9x9` boyutlarında bir Sudoku tahtası veriliyor. Tahtanın şu anki halinin geçerli (kurallara uygun) olup olmadığını bulman isteniyor.
 Geçerlilik kuralları:
 1. Her satırda `1-9` arası rakamlar tekrar etmeden bulunmalıdır.

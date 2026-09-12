@@ -2,7 +2,7 @@
 
 # [1. Two Sum](https://leetcode.com/problems/two-sum/)
 
-**Problem Statement**
+
 You are given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 You can return the answer in any order.
@@ -44,9 +44,11 @@ class Solution:
 ```
 
 **Time Complexity:** `O(n)`
+
 The entire array is traversed only once using a single `for` loop, which takes `O(n)` time. Checking if an element exists in a Python dictionary takes `O(1)` time on average.
 
 **Space Complexity:** `O(n)`
+
 We created an extra dictionary (`mapping`) to store the numbers and their indices. In the worst-case scenario, we might need to insert all elements into this dictionary, making the space scale linearly with the input size.
 
 --- 
@@ -69,7 +71,9 @@ class Solution:
 ```
 
 **Time Complexity:** `O(n^2)`
+
 For every element in the array (`n`), the rest of the elements are checked. The nested loop structure brings the complexity to `O(n^2)`.
 
 **Space Complexity:** `O(1)`
+
 No additional data structures (like arrays or hash maps) are used, so the memory footprint remains constant.

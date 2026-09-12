@@ -2,7 +2,7 @@
 
 # [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/)
 
-**Problem Statement**
+
 Given an array of strings `strs`, group the anagrams together. You can return the answer in any order.
 An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
@@ -89,5 +89,6 @@ class SolutionSorting:
 
 **Time Complexity:** $O(N \cdot M \log M)$
 Sorting each word of length $M$ takes $O(M \log M)$ time. We do this for $N$ words.
+
 **Space Complexity:** $O(N \cdot M)$
 We still store all words in the dictionary.

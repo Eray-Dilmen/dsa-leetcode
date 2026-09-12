@@ -2,7 +2,7 @@
 
 # [128. Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)
 
-**Problem Statement**
+
 Given an unsorted array of integers `nums`, return the length of the longest consecutive elements sequence.
 You must write an algorithm that runs in `O(n)` time.
 
@@ -17,7 +17,7 @@ You must write an algorithm that runs in `O(n)` time.
 
 ---
 
-**Türkçe Açıklama**
+### Türkçe Açıklama
 Sana karışık sırada tam sayılardan oluşan bir `nums` dizisi veriliyor. Ardışık olarak (peş peşe) devam eden en uzun sayı dizisinin uzunluğunu bulman isteniyor.
 *(Önemli Şart: Algoritman kesinlikle `O(n)` zaman karmaşıklığında çalışmalıdır).*
 
@@ -92,5 +92,6 @@ class SolutionSorting:
 
 **Time Complexity (Zaman Karmaşıklığı):** $O(N \log N)$
 En baskın işlem olan diziyi sıralama işlemi $O(N \log N)$ sürer.
+
 **Space Complexity (Alan Karmaşıklığı):** $O(1)$ veya $O(N)$
 Python'un Timsort algoritması sıralama yaparken arka planda $O(N)$ ekstra alan kullanır.

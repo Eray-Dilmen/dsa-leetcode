@@ -2,7 +2,7 @@
 
 # [1. Two Sum](https://leetcode.com/problems/two-sum/)
 
-**Problem Statement**
+
 You are given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 You can return the answer in any order.
@@ -26,7 +26,8 @@ You can return the answer in any order.
 
 ---
 
-**Türkçe Açıklama**
+### Türkçe Açıklama
+
 Bizden bir sayı dizisi (`nums`) ve bir hedef sayı (`target`) veriliyor. Dizideki hangi iki sayının toplamının bu hedef sayıya eşit olduğunu bulmamız ve bu iki sayının **indekslerini** (yerlerini) döndürmemiz isteniyor. Her test case için kesinlikle bir çözüm olduğu ve aynı indeksteki elemanı iki kere kullanamayacağımız belirtilmiş.
 
 > **Not:** Hash table kalıbı (pattern), bir elemanı ararken diziyi baştan sona tekrar taramak yerine (ki bu `O(n)` sürer), elemanları ve indekslerini bir sözlüğe (Hash Map) kaydederek daha sonra bu elemanları `O(1)` sürede bulmak için kullanılır.
@@ -54,10 +55,14 @@ class Solution:
                 mapping[num] = index
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n)`
+**Time Complexity:** `O(n)`
+
+
 Dizideki tüm elemanlar `enumerate` ile tek bir `for` döngüsü kullanılarak sadece bir kez gezilir, bu `O(n)` zaman alır. Sözlük (Hash Map) içinde arama yapma (`in` anahtar kelimesi) işlemi ortalama `O(1)` sürede gerçekleştiği için toplam karmaşıklık `O(n)` olur.
 
-**Space Complexity (Alan Karmaşıklığı):** `O(n)`
+**Space Complexity:** `O(n)`
+
+
 Dizideki sayıları ve indekslerini tutabilmek için `mapping` adında ekstra bir sözlük yapısı oluşturduk. En kötü senaryoda (örneğin aradığımız ikili dizinin en sonundaysa), dizideki tüm elemanlar bu sözlüğe eklenebilir. Bu yüzden kullanılan ekstra alan dizinin uzunluğu (`n`) ile doğru orantılı olarak `O(n)` olur.
 
 --- 
@@ -80,8 +85,10 @@ class Solution:
                     return [i, j]
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n^2)`
+**Time Complexity:** `O(n^2)`
+
 Dizi içindeki her bir eleman için (`n`), geri kalan diğer tüm elemanlar (`n-1`) tekrar kontrol edilir. Bu iç içe döngü durumu karmaşıklığı `O(n^2)` seviyesine çıkarır.
 
-**Space Complexity (Alan Karmaşıklığı):** `O(1)`
+**Space Complexity:** `O(1)`
+
 Ekstra hiçbir veri yapısı (liste, sözlük vb.) kullanılmadığı için hafızada kaplanan alan sabittir.

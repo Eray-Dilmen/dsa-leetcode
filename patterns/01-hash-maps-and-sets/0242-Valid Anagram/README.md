@@ -2,7 +2,7 @@
 
 # [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 
-**Problem Statement**
+
 Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.
 An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
@@ -48,8 +48,8 @@ class Solution:
         return True
 ```
 
-**Time Complexity:** `O(n)`
-Iterating through `s` takes `O(n)` time, and iterating through `t` takes `O(n)` time. Total time is `O(n)`.
+**Time Complexity:** `O(n)` Iterating through `s` takes `O(n)` time, and iterating through `t` takes `O(n)` time. Total time is `O(n)`.
+
 **Space Complexity:** `O(1)`
 The hash map stores at most 26 lowercase English letters. Since the size is bounded by a constant, the space complexity is `O(1)`.
 
@@ -80,8 +80,8 @@ class SolutionTwoMaps:
         return sm == st
 ```
 
-**Time Complexity:** `O(n)`
-Populating both dictionaries takes `O(n)` time.
+**Time Complexity:** `O(n)` Populating both dictionaries takes `O(n)` time.
+
 **Space Complexity:** `O(1)`
 Both dictionaries store at most 26 characters, resulting in constant space.
 
@@ -107,6 +107,7 @@ class SolutionCounter:
 
 **Time Complexity:** `O(n)`
 The `Counter` function iterates through the strings in `O(n)` time.
+
 **Space Complexity:** `O(1)`
 The counters store at most 26 characters.
 
@@ -122,7 +123,7 @@ class SolutionBruteForce:
         return sorted(s) == sorted(t)
 ```
 
-**Time Complexity:** `O(n log n)`
-The sorting operation dominates the time complexity.
+**Time Complexity:** `O(n log n)` The sorting operation dominates the time complexity.
+
 **Space Complexity:** `O(n)`
 Python's `sorted()` creates new list copies of the strings, using extra linear memory.

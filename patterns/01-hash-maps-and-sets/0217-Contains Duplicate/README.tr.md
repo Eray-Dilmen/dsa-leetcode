@@ -2,7 +2,7 @@
 
 # [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
 
-**Problem Statement**
+
 Given an integer array `nums`, return `true` if any value appears at least twice in the array, and return `false` if every element is distinct.
 
 ### Example 1:
@@ -19,7 +19,7 @@ Given an integer array `nums`, return `true` if any value appears at least twice
 
 ---
 
-**Türkçe Açıklama**
+### Türkçe Açıklama
 Sana `nums` adında tam sayılardan oluşan bir dizi veriliyor. Eğer dizideki herhangi bir değer en az iki kez geçiyorsa `true`, tüm elemanlar birbirinden farklıysa (hiç tekrar yoksa) `false` döndürmen isteniyor. Amacın dizide kopya/tekrar eden eleman olup olmadığını bulmaktır.
 
 > **Not:** Hash Set kalıbı, bir elemanın varlığını `O(1)` sürede kontrol etmek için kullanılır. Döngü sırasında elemanları bir kümeye (Set) ekleyerek, o elemanı daha önce görüp görmediğimizi anında tespit ederiz ve `O(n^2)` süren iç içe döngülerden kurtuluruz.

@@ -2,7 +2,7 @@
 
 # [15. 3Sum](https://leetcode.com/problems/3sum/)
 
-**Problem Statement**
+
 Given an integer array `nums`, return all the triplets `[nums[i], nums[j], nums[k]]` such that `i != j`, `i != k`, and `j != k`, and `nums[i] + nums[j] + nums[k] == 0`.
 
 Notice that the solution set must not contain duplicate triplets.
@@ -30,7 +30,7 @@ Notice that the solution set must not contain duplicate triplets.
 
 ---
 
-**Türkçe Açıklama**
+### Türkçe Açıklama
 Sana tam sayılardan oluşan bir `nums` dizisi veriliyor. Senden istenen, dizinin içinden seçeceğin **farklı indekslerdeki** 3 sayının toplamının `0` olduğu tüm olasılıkları (üçlü gruplar halinde) döndürmen. Bulduğun çözüm kümesinde birbirinin aynısı olan (kopya) üçlüler bulunmamalıdır.
 
 ---
@@ -78,11 +78,9 @@ class Solution:
         return list(l)
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n^2)`
-Diziyi sıralamak `O(n log n)` sürer. Sonrasında dıştaki `for` döngüsü `n` kez çalışırken, içindeki `while` döngüsü kalan elemanları taradığı için `O(n)` sürer. `O(n) * O(n) = O(n^2)` asimptotik olarak en baskın değer olduğu için genel karmaşıklık `O(n^2)` olur.
+**Time Complexity (Zaman Karmaşıklığı):** `O(n^2)` Diziyi sıralamak `O(n log n)` sürer. Sonrasında dıştaki `for` döngüsü `n` kez çalışırken, içindeki `while` döngüsü kalan elemanları taradığı için `O(n)` sürer. `O(n) * O(n) = O(n^2)` asimptotik olarak en baskın değer olduğu için genel karmaşıklık `O(n^2)` olur.
 
-**Space Complexity (Alan Karmaşıklığı):** `O(n)`
-Bulduğumuz geçerli üçlüleri benzersiz şekilde tutabilmek için `l` adında bir Hash Set oluşturuyoruz. En kötü durumda çözüm sayısı girdiye bağlı olarak artacağı için hafızada `O(n)` alan kaplar.
+**Space Complexity (Alan Karmaşıklığı):** `O(n)` Bulduğumuz geçerli üçlüleri benzersiz şekilde tutabilmek için `l` adında bir Hash Set oluşturuyoruz. En kötü durumda çözüm sayısı girdiye bağlı olarak artacağı için hafızada `O(n)` alan kaplar.
 
 --- 
 
@@ -108,5 +106,10 @@ class SolutionBruteForce:
         return list(l)
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n^3)`
+**Time Complexity:** `O(n^3)`
+
 İç içe geçen 3 döngü, girdi boyutu büyüdükçe çalışma süresini kübik olarak artırır.
+
+**Space Complexity:** `O(n)`
+
+Tekrar eden üçlüleri önlemek için kullanılan `set` yapısı ve sonuçları tutmak için dönüştürülen liste, bulunan üçlülerin sayısına bağlı olarak ekstra hafıza kullanır.

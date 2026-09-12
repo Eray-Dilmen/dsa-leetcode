@@ -2,7 +2,7 @@
 
 # [169. Majority Element](https://leetcode.com/problems/majority-element/)
 
-**Problem Statement**
+
 Given an array `nums` of size `n`, return the majority element.
 The majority element is the element that appears more than `⌊n / 2⌋` times. You may assume that the majority element always exists in the array.
 
@@ -16,7 +16,7 @@ The majority element is the element that appears more than `⌊n / 2⌋` times. 
 
 ---
 
-**Türkçe Açıklama**
+### Türkçe Açıklama
 Sana `n` boyutunda bir `nums` dizisi veriliyor ve dizideki **çoğunluk elemanını (majority element)** bulman isteniyor.
 Çoğunluk elemanı, dizide `n / 2` kereden daha fazla tekrar eden elemandır. Dizide her zaman bir çoğunluk elemanı bulunduğunu varsayabilirsin.
 
@@ -61,6 +61,7 @@ class Solution:
 
 **Time Complexity (Zaman Karmaşıklığı):** `O(N)`
 Diziyi sadece bir kez baştan sona tararız.
+
 **Space Complexity (Alan Karmaşıklığı):** `O(1)`
 Yukarıda açıklandığı gibi ekstra hafıza (dizi, sözlük vb.) tüketilmez.
 
@@ -90,6 +91,7 @@ class SolutionHashMap:
 
 **Time Complexity (Zaman Karmaşıklığı):** `O(N)`
 Sözlüğü doldurmak ve sonrasında içinde arama yapmak `O(N)` sürer.
+
 **Space Complexity (Alan Karmaşıklığı):** `O(N)`
 En kötü senaryoda dizideki elemanların frekanslarını tutmak için hafızada `O(N)` boyutunda bir sözlük oluşturulur.
 
@@ -110,5 +112,6 @@ class SolutionSorting:
 
 **Time Complexity (Zaman Karmaşıklığı):** `O(N log N)`
 Sıralama algoritmasının maliyetidir.
+
 **Space Complexity (Alan Karmaşıklığı):** `O(1)` veya `O(N)`
 Dile bağlı olarak sıralama işleminin arka planda kullandığı hafızaya göre değişir.

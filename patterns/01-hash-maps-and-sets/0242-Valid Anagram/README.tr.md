@@ -2,7 +2,7 @@
 
 # [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 
-**Problem Statement**
+
 Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.
 An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
@@ -16,7 +16,7 @@ An Anagram is a word or phrase formed by rearranging the letters of a different 
 
 ---
 
-**Türkçe Açıklama**
+### Türkçe Açıklama
 Sana `s` ve `t` adında iki metin veriliyor. Eğer `t` metni, `s` metninin bir **anagramı** ise `true`, değilse `false` döndürmen isteniyor. 
 Anagram, bir kelimedeki harflerin yerlerinin değiştirilerek (her harfin tam olarak aynı sayıda kullanılması şartıyla) yeni bir kelime oluşturulmasıdır.
 
@@ -54,8 +54,8 @@ class Solution:
         return True
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n)`
-İki string de birer kez taranır. 
+**Time Complexity (Zaman Karmaşıklığı):** `O(n)` İki string de birer kez taranır.
+
 **Space Complexity (Alan Karmaşıklığı):** `O(1)`
 Sözlük en fazla 26 adet İngilizce küçük harf tutacağı için harcanan alan sabittir.
 
@@ -86,10 +86,9 @@ class SolutionTwoMaps:
         return sm == st
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n)`
-İki sözlüğü doldurmak da `O(n)` zaman alır.
-**Space Complexity (Alan Karmaşıklığı):** `O(1)`
-İki sözlük de maksimum 26 eleman tutar.
+**Time Complexity (Zaman Karmaşıklığı):** `O(n)` İki sözlüğü doldurmak da `O(n)` zaman alır.
+
+**Space Complexity (Alan Karmaşıklığı):** `O(1)` İki sözlük de maksimum 26 eleman tutar.
 
 ---
 
@@ -111,10 +110,9 @@ class SolutionCounter:
         return s_dict == t_dict
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n)`
-`Counter` fonksiyonu verilen metni baştan sona taradığı için `O(n)` sürer.
-**Space Complexity (Alan Karmaşıklığı):** `O(1)`
-Sayaçlar maksimum 26 karakter tutar.
+**Time Complexity (Zaman Karmaşıklığı):** `O(n)` `Counter` fonksiyonu verilen metni baştan sona taradığı için `O(n)` sürer.
+
+**Space Complexity (Alan Karmaşıklığı):** `O(1)` Sayaçlar maksimum 26 karakter tutar.
 
 ---
 
@@ -128,7 +126,6 @@ class SolutionBruteForce:
         return sorted(s) == sorted(t)
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n log n)`
-Sıralama (sorting) algoritması `O(n log n)` sürede çalışır.
-**Space Complexity (Alan Karmaşıklığı):** `O(n)`
-`sorted()` fonksiyonu bellekte yeni bir liste kopyası oluşturduğu için `O(n)` alan kaplar.
+**Time Complexity (Zaman Karmaşıklığı):** `O(n log n)` Sıralama (sorting) algoritması `O(n log n)` sürede çalışır.
+
+**Space Complexity (Alan Karmaşıklığı):** `O(n)` `sorted()` fonksiyonu bellekte yeni bir liste kopyası oluşturduğu için `O(n)` alan kaplar.

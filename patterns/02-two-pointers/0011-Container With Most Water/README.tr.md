@@ -2,7 +2,7 @@
 
 # [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
 
-**Problem Statement**
+
 You are given an integer array `height` where each element represents the height of a vertical line drawn on a coordinate plane. The distance between each line is 1 on the x-axis. Find two lines that, together with the x-axis, form a container capable of holding the maximum amount of water. Return this maximum area. You cannot slant the container.
 
 ### Example 1:
@@ -18,7 +18,7 @@ You are given an integer array `height` where each element represents the height
 
 ---
 
-**Türkçe Açıklama**
+### Türkçe Açıklama
 Sana, x ekseni üzerinde çizilmiş dikey çizgilerin yüksekliklerini temsil eden bir `height` dizisi veriliyor. Bu çizgilerden herhangi ikisini seçerek, x ekseniyle birlikte içine en çok su alabilecek kabı oluşturman ve bu maksimum su miktarını (alanı) döndürmen isteniyor. Kabı eğemezsin.
 
 ---
@@ -53,10 +53,9 @@ class Solution:
         return max_area
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** $O(N)$
-Diziyi iki uçtan içe doğru sadece bir kez tararız.
-**Space Complexity (Alan Karmaşıklığı):** $O(1)$
-Sadece alan ve işaretçi takibi için birkaç değişken kullanıldığından ekstra belleğe ihtiyaç duyulmaz.
+**Time Complexity (Zaman Karmaşıklığı):** $O(N)$ Diziyi iki uçtan içe doğru sadece bir kez tararız.
+
+**Space Complexity (Alan Karmaşıklığı):** $O(1)$ Sadece alan ve işaretçi takibi için birkaç değişken kullanıldığından ekstra belleğe ihtiyaç duyulmaz.
 
 --- 
 
@@ -80,7 +79,6 @@ class SolutionBruteForce:
         return max_area
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** $O(N^2)$
-Olası tüm eşleşmeleri test etmek büyük veri setlerinde kodun zaman aşımına uğramasına (TLE) sebep olur.
-**Space Complexity (Alan Karmaşıklığı):** $O(1)$
-Ekstra bellek kullanılmaz.
+**Time Complexity (Zaman Karmaşıklığı):** $O(N^2)$ Olası tüm eşleşmeleri test etmek büyük veri setlerinde kodun zaman aşımına uğramasına (TLE) sebep olur.
+
+**Space Complexity (Alan Karmaşıklığı):** $O(1)$ Ekstra bellek kullanılmaz.

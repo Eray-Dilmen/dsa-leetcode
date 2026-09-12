@@ -2,7 +2,6 @@
 
 # [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
 
-**Problem Statement**
 You are given an integer array `height` where each element represents the height of a vertical line drawn on a coordinate plane. The distance between each line is 1 on the x-axis. Find two lines that, together with the x-axis, form a container capable of holding the maximum amount of water. Return this maximum area. You cannot slant the container.
 
 ### Example 1:
@@ -49,6 +48,7 @@ class Solution:
 
 **Time Complexity:** $O(N)$
 We traverse the array exactly once, moving the pointers towards each other until they meet.
+
 **Space Complexity:** $O(1)$
 We only use a few integer variables to keep track of pointers and the maximum area, requiring constant extra memory.
 
@@ -74,7 +74,10 @@ class SolutionBruteForce:
         return max_area
 ```
 
-**Time Complexity:** $O(N^2)$
+**Time Complexity:** $O(N^2)$ 
+
 Testing every single pair results in a quadratic time complexity, which is too slow for large inputs and will cause a Time Limit Exceeded (TLE) error.
-**Space Complexity:** $O(1)$
+
+**Space Complexity:** $O(1)$ 
+
 No extra memory is dynamically allocated.

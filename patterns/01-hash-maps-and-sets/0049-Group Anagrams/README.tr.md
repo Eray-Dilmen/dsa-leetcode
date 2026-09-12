@@ -2,7 +2,7 @@
 
 # [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/)
 
-**Problem Statement**
+
 Given an array of strings `strs`, group the anagrams together. You can return the answer in any order.
 An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
@@ -20,7 +20,7 @@ An Anagram is a word or phrase formed by rearranging the letters of a different 
 
 ---
 
-**Türkçe Açıklama**
+### Türkçe Açıklama
 Sana kelimelerden oluşan bir `strs` dizisi veriliyor. Senden istenen, birbirinin anagramı olan kelimeleri aynı gruplar (listeler) içine alıp döndürmendir.
 *(Anagram: Aynı harflerin aynı sayıda kullanıldığı farklı kelimeler).*
 
@@ -94,5 +94,6 @@ class SolutionSorting:
 
 **Time Complexity (Zaman Karmaşıklığı):** $O(N \cdot M \log M)$
 Uzunluğu $M$ olan bir kelimeyi sıralamak $O(M \log M)$ sürer. Bu işlem $N$ kelime için yapıldığından süre uzar.
+
 **Space Complexity (Alan Karmaşıklığı):** $O(N \cdot M)$
 Kelimeleri tutmak için gereken alan aynıdır.

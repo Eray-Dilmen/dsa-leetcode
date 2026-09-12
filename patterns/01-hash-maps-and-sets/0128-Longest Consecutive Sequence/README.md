@@ -2,7 +2,7 @@
 
 # [128. Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)
 
-**Problem Statement**
+
 Given an unsorted array of integers `nums`, return the length of the longest consecutive elements sequence.
 You must write an algorithm that runs in `O(n)` time.
 
@@ -86,5 +86,6 @@ class SolutionSorting:
 
 **Time Complexity:** $O(N \log N)$
 The dominant operation is the built-in `.sort()` method.
+
 **Space Complexity:** $O(1)$ or $O(N)$
 Depending on the language's sorting algorithm (Timsort in Python takes $O(N)$ space).
