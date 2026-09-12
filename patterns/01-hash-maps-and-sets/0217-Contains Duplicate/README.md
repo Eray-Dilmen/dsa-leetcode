@@ -39,9 +39,11 @@ class Solution:
 ```
 
 **Time Complexity:** `O(n)`
+
 In the worst-case scenario (no duplicates), the array is completely traversed once. Lookup operations in a Hash Set take `O(1)` time on average, resulting in an overall `O(n)` time complexity.
 
 **Space Complexity:** `O(n)`
+
 In the worst-case scenario, all unique elements are stored in the Hash Set, taking memory proportional to the size of the array.
 
 ---
@@ -69,9 +71,11 @@ class SolutionFrequencyMap:
 ```
 
 **Time Complexity:** `O(n)`
+
 Populating the dictionary takes `O(n)` time. Iterating over the unique elements in the dictionary takes another `O(n)` time in the worst case. Total time is `O(2n)`, which simplifies to `O(n)`.
 
 **Space Complexity:** `O(n)`
+
 In the worst-case scenario, all unique numbers and their frequencies are stored in the dictionary. While asymptotically the same as the Hash Set, dictionaries store both keys and values, giving it a slightly larger memory footprint constant.
 
 ---
@@ -92,7 +96,9 @@ class SolutionBruteForce:
 ```
 
 **Time Complexity:** `O(n^2)`
+
 The nested loops traverse the array approximately `n(n-1)/2` times.
 
 **Space Complexity:** `O(1)`
+
 No additional data structure is created.

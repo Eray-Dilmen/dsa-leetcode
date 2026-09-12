@@ -91,9 +91,11 @@ class Solution:
 ```
 
 **Time Complexity:** `O(1)`
+
 Since the board size is strictly fixed at `9x9`, iterating over it takes a constant `81` operations per pass. The set lookup is `O(1)`. Thus, the time complexity is `O(1)` (or `O(N^2)` if `N` was variable, but it is not).
 
 **Space Complexity:** `O(1)`
+
 The set will hold at most 9 elements at any given time. This requires a constant amount of extra memory.
 
 --- 
@@ -120,7 +122,9 @@ class SolutionBruteForce:
 ```
 
 **Time Complexity:** `O(1)`
+
 Technically still constant due to the fixed 9x9 board, but fundamentally slower by a constant factor because of `O(n)` linear lookups instead of `O(1)` hash lookups.
 
 **Space Complexity:** `O(1)`
+
 Lists also require a constant amount of memory bounded by 9 elements.

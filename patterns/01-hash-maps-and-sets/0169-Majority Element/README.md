@@ -54,9 +54,11 @@ class Solution:
 ```
 
 **Time Complexity:** `O(N)`
+
 We iterate through the array exactly once.
 
 **Space Complexity:** `O(1)`
+
 As explained above, only two variables are used.
 
 --- 
@@ -84,9 +86,11 @@ class SolutionHashMap:
 ```
 
 **Time Complexity:** `O(N)`
+
 Populating the dictionary takes `O(N)` time, and searching through it takes `O(N)` time.
 
 **Space Complexity:** `O(N)`
+
 In the worst case, the dictionary stores frequencies for `N` unique elements, requiring linear extra space.
 
 ---
@@ -105,7 +109,9 @@ class SolutionSorting:
 ```
 
 **Time Complexity:** `O(N log N)`
+
 The built-in sorting function dictates the time complexity.
 
 **Space Complexity:** `O(1)` or `O(N)`
+
 Depending on the sorting algorithm used by the language under the hood.

@@ -2,7 +2,7 @@
 
 # [771. Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)
 
-**Problem Statement**
+
 You're given strings `jewels` representing the types of stones that are jewels, and `stones` representing the stones you have. Each character in `stones` is a type of stone you have. You want to know how many of the stones you have are also jewels.
 
 Letters are case sensitive, so `"a"` is considered a different type of stone from `"A"`.
@@ -17,7 +17,7 @@ Letters are case sensitive, so `"a"` is considered a different type of stone fro
 
 ---
 
-**Türkçe Açıklama**
+### Türkçe Açıklama
 Sana mücevher türlerini temsil eden bir `jewels` metni ve elindeki taşları temsil eden bir `stones` metni veriliyor. `stones` içerisindeki her bir karakter elindeki bir taşı temsil eder. Amacın, sahip olduğun taşların kaç tanesinin aynı zamanda bir mücevher olduğunu bulmaktır.
 
 Harfler büyük-küçük harfe duyarlıdır (case-sensitive), yani `"a"` ile `"A"` farklı türde taşlar olarak kabul edilir.
@@ -46,10 +46,12 @@ class Solution:
         return count
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n + m)`
+**Time Complexity:** `O(n + m)`
+
 İç içe döngü olmadığı için karmaşıklıklar çarpılmaz (`n * m` olmaz), ardışık yapılan işlemler (`n` ve `m` adımları) toplanır.
 
-**Space Complexity (Alan Karmaşıklığı):** `O(n)`
+**Space Complexity:** `O(n)`
+
 `jewels` karakterlerini (yalnızca benzersiz olanları) saklamak için Set kullanılır, bu da `n` boyutunda ekstra hafıza gerektirir.
 
 --- 
@@ -74,8 +76,10 @@ class SolutionBruteForce:
         return count
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n * m)`
+**Time Complexity:** `O(n * m)`
+
 İç içe iki döngü (biri bizim yazdığımız `for`, diğeri arka planda çalışan `in`) oluştuğu için süre `O(n * m)` olur.
 
-**Space Complexity (Alan Karmaşıklığı):** `O(1)`
+**Space Complexity:** `O(1)`
+
 Ekstra bir veri yapısı oluşturulmaz.

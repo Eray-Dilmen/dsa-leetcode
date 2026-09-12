@@ -43,10 +43,12 @@ class Solution:
         return False
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n)`
+**Time Complexity:** `O(n)`
+
 En kötü senaryoda (hiç tekrar yoksa) dizi bir kez tamamen gezilir. Set üzerinde arama yapmak ortalama `O(1)` sürdüğü için genel karmaşıklık `O(n)` olur.
 
-**Space Complexity (Alan Karmaşıklığı):** `O(n)`
+**Space Complexity:** `O(n)`
+
 En kötü senaryoda tüm benzersiz elemanlar Set içinde saklanır, bu da dizinin boyutuyla doğru orantılı bir alan gerektirir.
 
 ---
@@ -73,10 +75,12 @@ class SolutionFrequencyMap:
         return False
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n)`
+**Time Complexity:** `O(n)`
+
 Sözlüğü doldurmak `O(n)` zaman alır. İkinci aşamada sözlükteki benzersiz elemanları gezmek en kötü durumda yine `O(n)` sürer. Toplam `O(2n)` işlemi katsayı atılarak `O(n)` olarak ifade edilir.
 
-**Space Complexity (Alan Karmaşıklığı):** `O(n)`
+**Space Complexity:** `O(n)`
+
 En kötü durumda tüm benzersiz sayılar ve sayı frekansları sözlükte tutulur. Asimptotik olarak Hash Set ile aynı olsa da, sözlükler (key-value mantığıyla) bellekte biraz daha fazla yer kaplar.
 
 ---
@@ -96,8 +100,10 @@ class SolutionBruteForce:
         return False
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n^2)`
+**Time Complexity:** `O(n^2)`
+
 İç içe döngüler diziyi ortalama `n(n-1)/2` kez gezer.
 
-**Space Complexity (Alan Karmaşıklığı):** `O(1)`
+**Space Complexity:** `O(1)`
+
 Ekstra bir veri yapısı oluşturulmaz.

@@ -40,9 +40,11 @@ class Solution:
 ```
 
 **Time Complexity:** `O(n + m)`
+
 Creating the set takes `O(n)` time, and iterating through the stones takes `O(m)` time. Since these operations are consecutive rather than nested, we add them together (`n + m`).
 
 **Space Complexity:** `O(n)`
+
 We use a Hash Set to store the characters from the `jewels` string, taking up memory proportional to `n`.
 
 --- 
@@ -68,7 +70,9 @@ class SolutionBruteForce:
 ```
 
 **Time Complexity:** `O(n * m)`
+
 The combination of the explicit `for` loop and the implicit `in` operator string search creates a nested loop scenario.
 
 **Space Complexity:** `O(1)`
+
 No additional data structure is created.

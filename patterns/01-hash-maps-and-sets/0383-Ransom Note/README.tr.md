@@ -52,10 +52,12 @@ class Solution:
         return True
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(m + n)`
+**Time Complexity:** `O(m + n)`
+
 Birinci döngü `magazine` uzunluğu (`m`) kadar çalışır ve `O(m)` zaman alır. İkinci döngü `ransomNote` uzunluğu (`n`) kadar çalışır ve `O(n)` zaman alır. Bu iki döngü iç içe (nested) değil, ardışık (arka arkaya) olduğu için karmaşıklıklar çarpılmaz, toplanır. Arama işlemleri (`in` anahtar kelimesi) hash map üzerinde yapıldığı için `O(1)` sürer. Sonuç olarak toplam süre `O(m + n)` olur.
 
-**Space Complexity (Alan Karmaşıklığı):** `O(1)`
+**Space Complexity:** `O(1)`
+
 `guide` adında ekstra bir sözlük yapısı oluşturduk. En kötü senaryoda bile İngilizce alfabesinde en fazla 26 adet küçük harf bulunur. Yani sözlüğün boyutu girdi ne kadar büyük olursa olsun en fazla 26 elemana kadar büyüyebilir. Büyüme miktarı girdiye bağlı olmayıp sabit (constant) bir sınıra sahip olduğu için alan karmaşıklığı `O(1)` olarak kabul edilir.
 
 --- 
@@ -76,8 +78,10 @@ class SolutionBruteForce:
         return True
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n * m)`
+**Time Complexity:** `O(n * m)`
+
 `ransomNote` içindeki her bir karakter (`n`) için, `mag_list` listesinde hem arama (`in`) hem de silme (`remove`) işlemi yapılır. Listelerde bu işlemler `O(m)` sürede gerçekleştiğinden toplam süre `O(n * m)` olur.
 
-**Space Complexity (Alan Karmaşıklığı):** `O(m)`
+**Space Complexity:** `O(m)`
+
 String değiştirilemez (immutable) olduğu için `magazine` karakterlerini tutan ve silme işlemlerini gerçekleştirdiğimiz ek bir liste (`mag_list`) oluşturulur; bu liste `m` eleman kadar yer kaplar.

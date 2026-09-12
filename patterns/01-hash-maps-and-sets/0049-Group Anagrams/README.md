@@ -88,7 +88,9 @@ class SolutionSorting:
 ```
 
 **Time Complexity:** $O(N \cdot M \log M)$
+
 Sorting each word of length $M$ takes $O(M \log M)$ time. We do this for $N$ words.
 
 **Space Complexity:** $O(N \cdot M)$
+
 We still store all words in the dictionary.

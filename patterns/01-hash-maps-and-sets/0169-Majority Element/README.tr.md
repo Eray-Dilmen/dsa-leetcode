@@ -59,10 +59,12 @@ class Solution:
         return ans
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(N)`
+**Time Complexity:** `O(N)`
+
 Diziyi sadece bir kez baştan sona tararız.
 
-**Space Complexity (Alan Karmaşıklığı):** `O(1)`
+**Space Complexity:** `O(1)`
+
 Yukarıda açıklandığı gibi ekstra hafıza (dizi, sözlük vb.) tüketilmez.
 
 --- 
@@ -89,10 +91,12 @@ class SolutionHashMap:
                 return i
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(N)`
+**Time Complexity:** `O(N)`
+
 Sözlüğü doldurmak ve sonrasında içinde arama yapmak `O(N)` sürer.
 
-**Space Complexity (Alan Karmaşıklığı):** `O(N)`
+**Space Complexity:** `O(N)`
+
 En kötü senaryoda dizideki elemanların frekanslarını tutmak için hafızada `O(N)` boyutunda bir sözlük oluşturulur.
 
 ---
@@ -110,8 +114,10 @@ class SolutionSorting:
         return nums[len(nums) // 2]
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(N log N)`
+**Time Complexity:** `O(N log N)`
+
 Sıralama algoritmasının maliyetidir.
 
-**Space Complexity (Alan Karmaşıklığı):** `O(1)` veya `O(N)`
+**Space Complexity:** `O(1)` veya `O(N)`
+
 Dile bağlı olarak sıralama işleminin arka planda kullandığı hafızaya göre değişir.

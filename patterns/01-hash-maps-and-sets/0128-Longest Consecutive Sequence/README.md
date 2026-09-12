@@ -49,9 +49,11 @@ class Solution:
 ```
 
 **Time Complexity:** $O(N)$
+
 Even though there is a `while` loop inside a `for` loop, the `while` loop only runs when a number is the start of a sequence. This guarantees that the inner loop processes each number in a sequence exactly once. Thus, the total time is strictly linear, $O(N)$.
 
 **Space Complexity:** $O(N)$
+
 Allocating memory for the Hash Set takes linear space based on the number of elements.
 
 --- 
@@ -85,7 +87,9 @@ class SolutionSorting:
 ```
 
 **Time Complexity:** $O(N \log N)$
+
 The dominant operation is the built-in `.sort()` method.
 
 **Space Complexity:** $O(1)$ or $O(N)$
+
 Depending on the language's sorting algorithm (Timsort in Python takes $O(N)$ space).

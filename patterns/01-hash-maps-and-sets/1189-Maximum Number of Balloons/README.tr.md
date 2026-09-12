@@ -2,7 +2,7 @@
 
 # [1189. Maximum Number of Balloons](https://leetcode.com/problems/maximum-number-of-balloons/)
 
-**Problem Statement**
+
 Given a string `text`, you want to use the characters of `text` to form as many instances of the word **"balloon"** as possible.
 You can use each character in `text` at most once. Return the maximum number of instances that can be formed.
 
@@ -20,7 +20,7 @@ You can use each character in `text` at most once. Return the maximum number of 
 
 ---
 
-**Türkçe Açıklama**
+### Türkçe Açıklama
 Sana `text` adında bir metin (string) veriliyor. Amacın, bu metindeki karakterleri kullanarak oluşturabileceğin maksimum **"balloon"** kelimesi sayısını bulmaktır. Metindeki her bir karakteri en fazla bir kez kullanabilirsin. Kaç tane "balloon" kelimesi oluşturulabileceğini döndürmen isteniyor.
 
 > **Not:** Hash table kalıbı, string içindeki harflerin frekansını (kaç kere geçtiklerini) sayıp bir sözlüğe atmak ve sonrasında `O(1)` sürede arama/kontrol yapmak için idealdir.
@@ -58,8 +58,10 @@ class Solution:
         )
 ```
 
-**Zaman Karmaşıklığı (Time Complexity):** `O(n)`
+**Zaman Karmaşıklığı:** `O(n)`
+
 `n` uzunluğundaki `text` metnini sadece bir kez gezeriz. Sözlüğe yazma, sözlükten okuma ve `min()` işlemi `O(1)` sürer.
 
-**Alan Karmaşıklığı (Space Complexity):** `O(1)`
+**Alan Karmaşıklığı:** `O(1)`
+
 Hash map içerisinde sadece İngilizce küçük harfler tutulur (maksimum 26 karakter). Girdi olan metnin uzunluğu ne kadar artarsa artsın, hafızada kaplanan alan 26 karakteri geçemeyeceği için sabit kalır.

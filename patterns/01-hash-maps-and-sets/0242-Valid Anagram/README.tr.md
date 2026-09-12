@@ -54,9 +54,12 @@ class Solution:
         return True
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n)` İki string de birer kez taranır.
+**Time Complexity:** `O(n)` 
 
-**Space Complexity (Alan Karmaşıklığı):** `O(1)`
+İki string de birer kez taranır.
+
+**Space Complexity:** `O(1)`
+
 Sözlük en fazla 26 adet İngilizce küçük harf tutacağı için harcanan alan sabittir.
 
 --- 
@@ -86,9 +89,13 @@ class SolutionTwoMaps:
         return sm == st
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n)` İki sözlüğü doldurmak da `O(n)` zaman alır.
+**Time Complexity:** `O(n)`
 
-**Space Complexity (Alan Karmaşıklığı):** `O(1)` İki sözlük de maksimum 26 eleman tutar.
+İki sözlüğü doldurmak da `O(n)` zaman alır.
+
+**Space Complexity:** `O(1)`
+
+İki sözlük de maksimum 26 eleman tutar.
 
 ---
 
@@ -110,9 +117,13 @@ class SolutionCounter:
         return s_dict == t_dict
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n)` `Counter` fonksiyonu verilen metni baştan sona taradığı için `O(n)` sürer.
+**Time Complexity:** `O(n)`
 
-**Space Complexity (Alan Karmaşıklığı):** `O(1)` Sayaçlar maksimum 26 karakter tutar.
+`Counter` fonksiyonu verilen metni baştan sona taradığı için `O(n)` sürer.
+
+**Space Complexity:** `O(1)`
+
+Sayaçlar maksimum 26 karakter tutar.
 
 ---
 
@@ -126,6 +137,10 @@ class SolutionBruteForce:
         return sorted(s) == sorted(t)
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** `O(n log n)` Sıralama (sorting) algoritması `O(n log n)` sürede çalışır.
+**Time Complexity:** `O(n log n)`
 
-**Space Complexity (Alan Karmaşıklığı):** `O(n)` `sorted()` fonksiyonu bellekte yeni bir liste kopyası oluşturduğu için `O(n)` alan kaplar.
+Sıralama (sorting) algoritması `O(n log n)` sürede çalışır.
+
+**Space Complexity:** `O(n)`
+
+`sorted()` fonksiyonu bellekte yeni bir liste kopyası oluşturduğu için `O(n)` alan kaplar.

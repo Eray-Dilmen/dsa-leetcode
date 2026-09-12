@@ -54,10 +54,12 @@ class Solution:
         return longest
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** $O(N)$
+**Time Complexity:** $O(N)$
+
 `for` döngüsünün içinde bir `while` döngüsü olmasına rağmen, `while` döngüsü yalnızca bir serinin başlangıç sayısını bulduğumuzda çalışır. Bu sayede her eleman `while` tarafından en fazla 1 kere işlenir. Toplam süre kesinlikle $O(N)$'dir.
 
-**Space Complexity (Alan Karmaşıklığı):** $O(N)$
+**Space Complexity:** $O(N)$
+
 Dizideki elemanları saklamak için oluşturduğumuz Hash Set, eleman sayısıyla orantılı olarak hafızada yer kaplar.
 
 --- 
@@ -90,8 +92,10 @@ class SolutionSorting:
         return max(longest, current_streak)
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** $O(N \log N)$
+**Time Complexity:** $O(N \log N)$
+
 En baskın işlem olan diziyi sıralama işlemi $O(N \log N)$ sürer.
 
-**Space Complexity (Alan Karmaşıklığı):** $O(1)$ veya $O(N)$
+**Space Complexity:** $O(1)$ veya $O(N)$
+
 Python'un Timsort algoritması sıralama yaparken arka planda $O(N)$ ekstra alan kullanır.

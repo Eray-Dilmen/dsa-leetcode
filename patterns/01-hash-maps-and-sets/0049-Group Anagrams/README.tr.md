@@ -59,6 +59,7 @@ class Solution:
 ```
 
 **Time Complexity (Zaman Karmaşıklığı):** $O(N \cdot M)$
+
 * $N$: Toplam kelime sayısı. $M$: Bir kelimenin maksimum harf sayısı (uzunluğu).
 * Dıştaki döngü listedeki her kelimeyi gezer ($N$ kere döner). İçteki döngü o anki kelimenin her harfini okur ($M$ adım sürer).
 * Her harf için yapılan işlem (`ord` hesabı ve artırma) ile sözlüğe ekleme işlemi Hash Table mantığıyla $O(1)$'dir.
@@ -92,8 +93,10 @@ class SolutionSorting:
         return list(anagrams_dict.values())
 ```
 
-**Time Complexity (Zaman Karmaşıklığı):** $O(N \cdot M \log M)$
+**Time Complexity:** $O(N \cdot M \log M)$
+
 Uzunluğu $M$ olan bir kelimeyi sıralamak $O(M \log M)$ sürer. Bu işlem $N$ kelime için yapıldığından süre uzar.
 
-**Space Complexity (Alan Karmaşıklığı):** $O(N \cdot M)$
+**Space Complexity:** $O(N \cdot M)$
+
 Kelimeleri tutmak için gereken alan aynıdır.

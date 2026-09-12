@@ -100,9 +100,11 @@ class Solution:
 ```
 
 **Time Complexity (Zaman Karmaşıklığı):** `O(1)`
+
 Sudoku tahtasının boyutu `9x9` olarak sabit olduğu için, tahtayı gezmek her döngüde maksimum `81` adım sürer. Set üzerinde arama yapmak da `O(1)` olduğu için çalışma süresi sabittir (Constant Time).
 
 **Space Complexity (Alan Karmaşıklığı):** `O(1)`
+
 Her bir Set içerisine maksimum 9 eleman alabilir. Girdi boyutu değişmediği için kullanılan ekstra hafıza da sabittir.
 
 --- 
@@ -129,7 +131,9 @@ class SolutionBruteForce:
 ```
 
 **Time Complexity (Zaman Karmaşıklığı):** `O(1)`
+
 Matematiksel olarak tahta boyutu sabit olduğu için zaman karmaşıklığı sabittir, ancak `O(n)` arama mantığı sebebiyle Set yaklaşımına kıyasla daha yavaş çalışır.
 
 **Space Complexity (Alan Karmaşıklığı):** `O(1)`
+
 Listeler de 9'dan fazla eleman tutmayacağı için harcanan alan sabittir.

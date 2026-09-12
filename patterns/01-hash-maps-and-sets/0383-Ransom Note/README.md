@@ -48,9 +48,11 @@ class Solution:
 ```
 
 **Time Complexity:** `O(m + n)`
+
 The first loop runs for the length of `magazine` (`m`), taking `O(m)` time. The second loop runs for the length of `ransomNote` (`n`), taking `O(n)` time. Since these loops are consecutive and not nested, their complexities are added. Dictionary lookups (`in`) take `O(1)` time. Thus, the total time complexity is `O(m + n)`.
 
 **Space Complexity:** `O(1)`
+
 We created an extra dictionary named `guide`. Even in the worst-case scenario, the English alphabet only contains 26 lowercase letters. This means the dictionary size is capped at 26 elements, regardless of the input size. Since the memory footprint is bounded by a constant, the space complexity is `O(1)`.
 
 --- 
@@ -72,7 +74,9 @@ class SolutionBruteForce:
 ```
 
 **Time Complexity:** `O(n * m)`
+
 For each character (`n`) in `ransomNote`, we perform both a lookup (`in`) and a deletion (`remove`) operation on the `mag_list`. Because these list operations take `O(m)` time, the total time complexity becomes `O(n * m)`.
 
 **Space Complexity:** `O(m)`
+
 Since strings are immutable in Python, we create an additional list (`mag_list`) to hold the characters of `magazine` so we can perform deletion operations. This list requires space proportional to `m`.

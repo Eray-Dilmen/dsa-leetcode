@@ -2,7 +2,7 @@
 
 # [1189. Maximum Number of Balloons](https://leetcode.com/problems/maximum-number-of-balloons/)
 
-**Problem Statement**
+
 Given a string `text`, you want to use the characters of `text` to form as many instances of the word **"balloon"** as possible.
 You can use each character in `text` at most once. Return the maximum number of instances that can be formed.
 
@@ -54,7 +54,9 @@ class Solution:
 ```
 
 **Time Complexity:** `O(n)`
+
 We iterate through the string `text` of length `n` exactly once, which takes `O(n)` time. Dictionary reads, writes, and the `min()` operation all take `O(1)` time.
 
 **Space Complexity:** `O(1)`
+
 The Hash Map only stores English lowercase letters (maximum 26 characters). No matter how large the input string grows, the memory footprint remains capped at a constant 26 elements, making the space complexity `O(1)`.
