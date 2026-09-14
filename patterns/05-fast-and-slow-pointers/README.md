@@ -5,7 +5,10 @@
 ## What is the Fast & Slow Pointers Pattern?
 
 * **Definition:** Also known as Floyd’s Cycle Finding Algorithm, this pattern uses two pointers moving through a sequence at **different, constant speeds** (usually the slow pointer moves 1 step, and the fast pointer moves 2 steps).
-* **The Core Superpower:** It solves problems on Linked Lists (and sometimes arrays acting as state machines) in `O(n)` time and `O(1)` space. Unlike the standard Two Pointers pattern used in arrays for searching/filtering, this pattern is specifically designed to detect cycles (infinite loops) and find the structural center of a one-way sequence without needing extra memory (like Hash Sets).
+* **The Core Superpower:** It solves problems on Linked Lists (and state-machine arrays) in `O(n)` time and `O(1)` space. 
+* **Key Difference from Pattern 02 (Two Pointers):** 
+  * In **Pattern 02 (Same Direction)**, the slow pointer moves *conditionally* (Reader/Writer) to modify an array in-place.
+  * In **Pattern 05 (Floyd's Algorithm)**, both pointers move at *fixed relative speeds* (1 step vs. 2 steps) regardless of element values, specifically to detect cycles (infinite loops) or locate structural positions (like the midpoint) without extra memory.
 
 ---
 
