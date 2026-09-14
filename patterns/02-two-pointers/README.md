@@ -22,9 +22,11 @@ The "Two Pointers" pattern is not a single strict rule; it has several specializ
   * [0125-Valid Palindrome](./0125-Valid%20Palindrome)
   * [0011-Container With Most Water](./0011-Container%20With%20Most%20Water)
 
-### 2. Same Direction (Fast & Slow Pointers)
-* **Algorithm:** Both pointers start at `index 0`. The `fast` pointer iterates through the array at every step to scan elements. The `slow` pointer only moves when a specific condition is met, keeping track of the position where the next valid element should be placed.
-* **When to use it:** Modifying arrays in-place (removing duplicates/zeros) or detecting cycles (Floyd's Cycle Finding).
+### 2. Same Direction (Reader / Writer Pointers)
+
+* **Algorithm:** Both pointers start at index `0`. The `reader` (fast) pointer iterates through the array at every step to scan elements. The `writer` (slow) pointer only advances when a specific condition is met, overwriting or placing the next valid element.
+* **When to use it:** In-place array modification (e.g., removing duplicates, shifting zeroes, filtering elements) without extra memory.
+* **Difference from Pattern 05:** Here, the slow pointer advances **conditionally** based on values, and the goal is array mutation. In Pattern 05 (Fast & Slow / Floyd's), pointers move at **fixed, constant speeds** (1x vs 2x) to detect cycles or find midpoints.
 * **Repository Examples:**
   * [0026-Remove Duplicates from Sorted Array](./0026-Remove%20Duplicates%20from%20Sorted%20Array)
   * [0283-Move Zeroes](./0283-Move%20Zeroes)
