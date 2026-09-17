@@ -20,9 +20,11 @@ A subarray is a contiguous non-empty sequence of elements within an array.
 Instead of calculating the sum of every possible subarray from scratch, we keep a running cumulative sum (`prefix_sum`). As we iterate through the array, we use a hash map (`freq`) to store how many times each cumulative sum has occurred. 
 
 **The Core Logic & "Why"s:**
-* **Mathematical Logic:** If we are at some current sum and we want to find a subarray that sums to `k` ending at our current position, we are essentially looking for a *past sum* that we can cut off from the beginning. 
-  Equation: `Current Sum - Past Sum = k` $\rightarrow$ `Past Sum = Current Sum - k`. 
-  By checking if `prefix_sum - k` exists in our hash map, we instantly know if there's a valid subarray ending here.
+* **Mathematical Logic:** Mathematically, the sum of a subarray is the difference between the cumulative sum at the end point and the cumulative sum just before the start point:  
+  `Current_Prefix_Sum - Past_Prefix_Sum = k`  
+  Rearranging this equation to match the code's perspective:  
+  `Past_Prefix_Sum = Current_Prefix_Sum - k`  
+  If we are at some current sum and want to find a subarray that sums to `k` ending at our current position, we are essentially looking for a past sum that we can cut off from the beginning. By checking if `prefix_sum - k` exists in our hash map, we instantly know if there is a valid subarray ending here.
 * **Why start with `freq = {0: 1}`?:** This is our base case. It represents the state before we even start iterating: "The sum is 0 before any elements are picked." If our very first element equals `k` (e.g., element is 3, `k = 3`), the formula looks for `3 - 3 = 0`. Without `{0: 1}`, we would completely miss valid subarrays that start from the very first index (index 0).
 * **Why add frequency (`count += freq[...]`) instead of just `+1`?:** The `prefix_sum - k` value is the part we are *cutting off* from the beginning of the array to leave a subarray of sum `k`. Because arrays can contain zeroes or negative numbers, the cumulative sum can fluctuate, meaning we might have hit that exact same *past sum* multiple times. Each time we hit it represents a completely different index where we can make a valid cut. Therefore, we must add the total number of times that cut-off sum occurred in the past.
 
