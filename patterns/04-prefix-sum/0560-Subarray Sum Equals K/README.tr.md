@@ -27,12 +27,11 @@ Tüm alt dizileri iç içe döngülerle baştan hesaplamak yerine, dizide ilerle
 
 **Olayın Mantığı ve Kodun Okuması:**
 
-* **1. Matematiksel Mantık:**
-Diyelim ki bir noktaya kadar geldin ve elindeki kümülatif toplam `prefix_sum`. Senin aradığın şey ise toplamı `k` olan bir alt dizi. Denklem şu:
-`Şu anki Toplam - Geçmişteki Bir Toplam = k`
-Buradan geçmişi çekersek: `Geçmişteki Toplam = prefix_sum - k`.
-Yani Hash Map'te `prefix_sum - k` değerini aramak, *"Aradaki farkı tam olarak k yapan bir başlangıç noktası var mı?"* sorusunun doğrudan kontrolüdür. Parçayı baştan toplayıp kontrol etmene gerek kalmaz.
-
+* **Matematiksel Mantık:** Matematiksel olarak bir subarray toplamı, bitiş noktasındaki toplam ile başlangıç noktasından hemen önceki toplamın farkıdır:  
+  `Mevcut_Prefix_Sum - Gecmis_Prefix_Sum = k`  
+  Bu denklemi kodun bakış açısına göre düzenlersek:  
+  `Gecmis_Prefix_Sum = Mevcut_Prefix_Sum - k`  
+  Eğer bulunduğumuz noktada toplamı `k` olan ve burada biten bir subarray arıyorsak, aslında baştan kesip atabileceğimiz geçmiş bir toplam arıyoruz demektir. Hash map içinde `prefix_sum - k` değerinin olup olmadığını kontrol ederek burada biten geçerli bir subarray bulunup bulunmadığını anında anlarız.
 * **2. Neden `freq = {0: 1}` ile Başlıyor? (En Çok Karışan Kısım):**
 Diyelim ki `k = 3` ve dizinin ilk elemanı tek başına `3`. Kümülatif toplam `3` olur. Formülü uygularsın: `3 - 3 = 0`. Kod geçmişe döner ve bakar: *"Daha önce toplamın 0 olduğu bir durum var mıydı?"* Eğer sözlüğe en başta `{0: 1}` koymazsan, en baştan (0. indeksten) başlayan geçerli alt dizileri çöpe atmış olursun. Kısacası bu, *"Henüz hiçbir eleman seçilmemişken toplam 0'dır ve bu durum 1 kez gerçekleşmiştir"* taban durumudur (base case).
 
