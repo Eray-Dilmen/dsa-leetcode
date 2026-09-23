@@ -1,4 +1,4 @@
-> 💡 **Note:** This problem will be optimally solved using the **Fast and Slow Pointers** pattern. Currently, this file contains the naive two-pass approach. For the general logic, use cases, and theoretical details of the pointer patterns, refer to the [pattern README.md](../README.md).
+> 💡 **Note:** This problem is optimally solved using the **Fast and Slow Pointers** pattern. For the general logic, use cases, and theoretical details of this pattern, refer to the [pattern README.md](../README.md).
 
 # [0876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
 
@@ -18,11 +18,17 @@ If there are two middle nodes, return the **second middle node**.
 
 ---
 
-### 1. Find Length and Iterate Approach (Brute Force / Two Passes)
+### 1. Fast and Slow Pointers Approach (Optimal / One Pass)
 
-Since we cannot know the length of a singly linked list beforehand, the most straightforward approach is to traverse the entire list to count the total number of nodes. 
+The most efficient way to find the middle of a linked list in a single pass is by using two pointers that travel at different speeds. 
 
-Once we have the total length, we calculate the index of the middle node by performing integer division (`length // 2`). We then reset our pointer back to the `head` and traverse the list a second time, stopping exactly at the calculated middle index.
+**The Core Logic:**
+We initialize two pointers, `slow` and `fast`, both starting at the `head`. 
+* The `slow` pointer moves one step at a time (`slow = slow.next`).
+* The `fast` pointer moves two steps at a time (`fast = fast.next.next`).
+
+Because the `fast` pointer travels exactly twice as fast as the `slow` pointer, by the time the `fast` pointer reaches the end of the list (or `None`), the `slow` pointer will be exactly at the halfway mark (the middle node). 
+The loop condition `while (fast and fast.next):` ensures we don't hit a `NullReferenceException` when moving the fast pointer by two steps.
 
 ```python
 # Definition for singly-linked list.
@@ -31,6 +37,33 @@ Once we have the total length, we calculate the index of the middle node by perf
 #         self.val = val
 #         self.next = next
 class Solution:
+    def middleNode(self, head: ListNode | None) -> ListNode | None:
+        slow = head
+        fast = head
+        
+        while (fast and fast.next):
+            slow = slow.next
+            fast = fast.next.next
+            
+        return slow
+```
+
+**Time Complexity:** `O(N)`  
+We traverse the linked list strictly once. The `fast` pointer reaches the end in $N/2$ steps, making it a highly efficient single-pass (One Pass) algorithm.
+
+**Space Complexity:** `O(1)`  
+We only use two pointers (`slow` and `fast`), which require constant extra space.
+
+--- 
+
+### 2. Find Length and Iterate Approach (Brute Force / Two Passes)
+
+Since we cannot know the length of a singly linked list beforehand, the most straightforward approach is to traverse the entire list to count the total number of nodes. 
+
+Once we have the total length, we calculate the index of the middle node by performing integer division (`length // 2`). We then reset our pointer back to the `head` and traverse the list a second time, stopping exactly at the calculated middle index.
+
+```python
+class SolutionBruteForce:
     def middleNode(self, head: ListNode | None) -> ListNode | None:
         lenght = 0
         
@@ -51,7 +84,7 @@ class Solution:
 ```
 
 **Time Complexity:** `O(N)`  
-We traverse the entire list once to find the length ($N$ steps), and then we traverse it again up to the middle ($N/2$ steps). The overall time complexity is $O(N)$, but it requires 1.5 passes over the data.
+We traverse the entire list once to find the length ($N$ steps), and then we traverse it again up to the middle ($N/2$ steps). The overall time complexity is still $O(N)$, but it requires 1.5 passes over the data, making it slower than the optimal approach.
 
 **Space Complexity:** `O(1)`  
-We only use a few variables (`lenght`, `middle`, `curr`) to keep track of counts and nodes, requiring constant extra space.
+We only use a few variables (`lenght`, `middle`, `curr`) to keep track of counts and nodes.
