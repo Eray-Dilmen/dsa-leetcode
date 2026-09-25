@@ -54,6 +54,9 @@ class Solution:
         return False
 ```
 
+**Önemli Uygulama Detayı:**
+`if slow == fast:` kontrolünün işaretçiler ilerletildikten *sonra* yapılması kritik bir detaydır. Eğer bu kontrol `while` döngüsünün en başında, işaretçiler hareket etmeden yapılırsa; döngü içermeyen tek düğümlü bir listede (örn. `head = [1], pos = -1`) algoritma hatalı biçimde `True` döndürür. Bunun nedeni `slow` ve `fast` işaretçilerinin başlangıçta aynı `head` düğümünde bulunmasıdır.
+
 **Time Complexity:** `O(N)`  
 Döngü varsa iki işaretçi lineer zaman içinde kesişir, döngü yoksa zaten `N/2` adımda algoritma sonlanır.
 
