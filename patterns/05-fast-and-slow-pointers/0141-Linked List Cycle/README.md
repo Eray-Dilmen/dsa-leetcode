@@ -53,6 +53,8 @@ class Solution:
                 
         return False
 ```
+**Important Implementation Detail:**
+Notice that the `if slow == fast:` check is placed *after* the pointers are advanced. If this check is performed at the very beginning of the `while` loop before moving them, the algorithm will incorrectly return `True` for a single-node list without a cycle (e.g., `head = [1], pos = -1`). This occurs because both `slow` and `fast` are initially pointing to the same `head` node.
 
 **Time Complexity:** `O(N)`  
 In the worst-case scenario (where a cycle exists), the fast pointer will catch up to the slow pointer in linear time. If there is no cycle, it reaches the end in $N/2$ steps.
