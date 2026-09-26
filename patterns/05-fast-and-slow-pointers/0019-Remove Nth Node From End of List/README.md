@@ -21,18 +21,18 @@ Given the `head` of a linked list, remove the `n`th node from the end of the lis
 
 ### 1. Fast and Slow Pointers Approach (Optimal / One-Pass)
 
-While a brute force approach requires scanning the list twice, the Fast and Slow pointer technique allows us to find and remove the target node in a single traversal (One-pass)[cite: 28]. 
+While a brute force approach requires scanning the list twice, the Fast and Slow pointer technique allows us to find and remove the target node in a single traversal (One-pass). 
 
 **The Dummy Node and $n+1$ Gap Logic:**
-To remove a node in a singly linked list, our pointer must stop exactly *one node before* the target node[cite: 29]. We achieve this by creating a `dummy` node that points to the `head`[cite: 32]. 
-Both `fast` and `slow` pointers start at this `dummy` node[cite: 32]. We first move the `fast` pointer `n` steps ahead[cite: 32]. Because they started one step behind the actual list (at the dummy), this effectively creates a gap that positions `slow` exactly one step behind the target node when `fast` reaches the end of the list[cite: 29].
+To remove a node in a singly linked list, our pointer must stop exactly *one node before* the target node. We achieve this by creating a `dummy` node that points to the `head`. 
+Both `fast` and `slow` pointers start at this `dummy` node. We first move the `fast` pointer `n` steps ahead. Because they started one step behind the actual list (at the dummy), this effectively creates a gap that positions `slow` exactly one step behind the target node when `fast` reaches the end of the list.
 
 <img src="slow_behind_target.png" width="500" />
 
-Once `slow` is positioned right before the target, we bypass the target node with `slow.next = slow.next.next`[cite: 32].
+Once `slow` is positioned right before the target, we bypass the target node with `slow.next = slow.next.next`.
 
 **Why return `dummy.next` instead of `head`?**
-If the node to be removed happens to be the very first node of the list, the original `head` variable will still point to that deleted node[cite: 31]. The `dummy.next` always points to the true, updated head of the list, ensuring we don't return a removed node[cite: 31].
+If the node to be removed happens to be the very first node of the list, the original `head` variable will still point to that deleted node. The `dummy.next` always points to the true, updated head of the list, ensuring we don't return a removed node.
 
 ```python
 # Definition for singly-linked list.
@@ -59,19 +59,19 @@ class Solution:
 ```
 
 **Time Complexity:** `O(N)`  
-We traverse the list only once (One-pass). This is practically faster and more cache-efficient than the two-pass approach[cite: 28].
+We traverse the list only once (One-pass). This is practically faster and more cache-efficient than the two-pass approach.
 
 **Space Complexity:** `O(1)`  
-We only use a dummy node and two pointers, requiring constant extra space[cite: 28].
+We only use a dummy node and two pointers, requiring constant extra space.
 
 --- 
 
 ### 2. Find Length and Iterate (Brute Force / Two-Pass)
 
-The most naive way to solve this is to traverse the list once to find its total length (`lenn`), and then traverse it a second time to reach the node just before the one we want to delete[cite: 27]. 
+The most naive way to solve this is to traverse the list once to find its total length (`lenn`), and then traverse it a second time to reach the node just before the one we want to delete. 
 
 **The Edge Case (Removing the Head):**
-If the node we need to remove is the very first node of the list, the mathematical index for the previous node (`lenn - n - 1`) becomes `-1`[cite: 26]. The `for` loop `range(0, -1)` will not execute, and a `NoneType` error will occur when trying to access `.next.next`[cite: 26]. To fix this edge case, if the length of the list is equal to `n` (`lenn == n`), it means the head must be removed, so we simply return `head.next` directly[cite: 26, 27].
+If the node we need to remove is the very first node of the list, the mathematical index for the previous node (`lenn - n - 1`) becomes `-1`. The `for` loop `range(0, -1)` will not execute, and a `NoneType` error will occur when trying to access `.next.next`. To fix this edge case, if the length of the list is equal to `n` (`lenn == n`), it means the head must be removed, so we simply return `head.next` directly.
 
 ```python
 class SolutionBruteForce:
@@ -95,7 +95,7 @@ class SolutionBruteForce:
 ```
 
 **Time Complexity:** `O(N)`  
-Although the asymptotic complexity is $O(N)$, this requires traversing the list twice (Two-pass), totaling roughly $2N$ steps[cite: 28].
+Although the asymptotic complexity is $O(N)$, this requires traversing the list twice (Two-pass), totaling roughly $2N$ steps.
 
 **Space Complexity:** `O(1)`  
-We only use variables to store the length and the current node[cite: 28].
+We only use variables to store the length and the current node.
