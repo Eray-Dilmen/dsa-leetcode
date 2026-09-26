@@ -21,18 +21,18 @@ Sana bir bağlı listenin `head` düğümü veriliyor. Senden istenen, listenin 
 
 ### 1. Fast and Slow Pointers Yaklaşımı (Optimal / One-Pass)
 
-Bu yaklaşımın temel amacı, listeyi iki kez gezmek yerine iki işaretçi (`fast` ve `slow`) arasındaki mesafeyi sabitleyerek listeyi **tek geçişte (one-pass)** taramaktır[cite: 28]. Asimptotik olarak her iki yöntem de $O(N)$ olsa da, tek geçişli yöntem işlemci seviyesinde adım sayısını yarıya indirir ve bellek erişimini (cache) optimize eder[cite: 28].
+Bu yaklaşımın temel amacı, listeyi iki kez gezmek yerine iki işaretçi (`fast` ve `slow`) arasındaki mesafeyi sabitleyerek listeyi **tek geçişte (one-pass)** taramaktır. Asimptotik olarak her iki yöntem de $O(N)$ olsa da, tek geçişli yöntem işlemci seviyesinde adım sayısını yarıya indirir ve bellek erişimini (cache) optimize eder.
 
 **$n+1$ Boşluğu ve Dummy Node Mantığı:**
-Tek yönlü bir bağlı listede bir düğümü silebilmek için, işaretçimizin silinecek düğümden **tam 1 adım geride** (önceki düğümde) durması gerekir[cite: 29]. Bunun için `slow` ve `fast` işaretçilerini doğrudan `head` üzerinden değil, `head`'in bir adım gerisine koyduğumuz `dummy` düğümünden başlatırız[cite: 32]. 
-`fast` işaretçisini `n` adım ileri aldığımızda aralarındaki mesafe ayarlanmış olur[cite: 32]. İkisi de `dummy`'den başladığı için, `fast` listenin sonundaki `None` değerine ulaştığında, `slow` tam olarak silinecek düğümün bir adım gerisinde kalır[cite: 29].
+Tek yönlü bir bağlı listede bir düğümü silebilmek için, işaretçimizin silinecek düğümden **tam 1 adım geride** (önceki düğümde) durması gerekir. Bunun için `slow` ve `fast` işaretçilerini doğrudan `head` üzerinden değil, `head`'in bir adım gerisine koyduğumuz `dummy` düğümünden başlatırız. 
+`fast` işaretçisini `n` adım ileri aldığımızda aralarındaki mesafe ayarlanmış olur. İkisi de `dummy`'den başladığı için, `fast` listenin sonundaki `None` değerine ulaştığında, `slow` tam olarak silinecek düğümün bir adım gerisinde kalır.
 
 <img src="slow_behind_target.png" width="500" />
 
-Bu sayede `slow.next = slow.next.next` işlemi güvenle çalıştırılır ve aradaki düğüm koparılır[cite: 29].
+Bu sayede `slow.next = slow.next.next` işlemi güvenle çalıştırılır ve aradaki düğüm koparılır.
 
 **Neden `return head` yerine `return dummy.next` diyoruz?**
-Eğer silinmesi gereken düğüm listenin **en başındaki düğüm** ise (örneğin liste `[1,2]` ve `n=2`), silme işleminden sonra `head` değişkeni hala silinmiş olan eski ilk düğümü göstermeye devam eder[cite: 31]. Fakat `dummy.next` her zaman listenin güncel ve gerçek başını temsil eder[cite: 31]. Bu yüzden hata almamak için mutlaka `dummy.next` döndürülmelidir[cite: 31].
+Eğer silinmesi gereken düğüm listenin **en başındaki düğüm** ise (örneğin liste `[1,2]` ve `n=2`), silme işleminden sonra `head` değişkeni hala silinmiş olan eski ilk düğümü göstermeye devam eder. Fakat `dummy.next` her zaman listenin güncel ve gerçek başını temsil eder. Bu yüzden hata almamak için mutlaka `dummy.next` döndürülmelidir.
 
 ```python
 # Definition for singly-linked list.
@@ -59,19 +59,19 @@ class Solution:
 ```
 
 **Time Complexity:** `O(N)`  
-Liste sadece bir kez baştan sona taranır (One-pass). Toplam adım sayısı yaklaşık $N$'dir[cite: 28].
+Liste sadece bir kez baştan sona taranır (One-pass). Toplam adım sayısı yaklaşık $N$'dir.
 
 **Space Complexity:** `O(1)`  
-Sadece `dummy`, `slow` ve `fast` işaretçileri kullanıldığı için ekstra hafıza gerektirmez[cite: 28].
+Sadece `dummy`, `slow` ve `fast` işaretçileri kullanıldığı için ekstra hafıza gerektirmez.
 
 --- 
 
 ### 2. Uzunluğu Bulup Tekrar İlerleme (Brute Force / Two-Pass)
 
-Bağlı listenin boyutunu önceden bilemediğimiz için önce listeyi tam tur gezip uzunluğunu (`lenn`) bulduğumuz, ardından hedefe ulaşmak için listeyi tekrar gezdiğimiz (Two-pass) en basit yöntemdir[cite: 27, 28].
+Bağlı listenin boyutunu önceden bilemediğimiz için önce listeyi tam tur gezip uzunluğunu (`lenn`) bulduğumuz, ardından hedefe ulaşmak için listeyi tekrar gezdiğimiz (Two-pass) en basit yöntemdir.
 
 **İlk Elemanın Silinmesi (Edge Case) Sorunu:**
-Eğer listenin uzunluğu `n`'e eşitse (`lenn == n`), bu listenin en başındaki ilk elemanın silineceği anlamına gelir[cite: 26]. Eğer bu durumu manuel olarak kontrol etmezsek, `lenn - n - 1` formülü `-1` çıkar, döngü çalışmaz ve işaretçi en başta kalır[cite: 26]. Ardından `curr.next.next` yapılmaya çalışıldığında `AttributeError: 'NoneType' object has no attribute 'next'` hatası fırlatır[cite: 26]. Bu yüzden `lenn == n` ise doğrudan `head.next` döndürülerek ilk eleman atlanır[cite: 26, 27].
+Eğer listenin uzunluğu `n`'e eşitse (`lenn == n`), bu listenin en başındaki ilk elemanın silineceği anlamına gelir. Eğer bu durumu manuel olarak kontrol etmezsek, `lenn - n - 1` formülü `-1` çıkar, döngü çalışmaz ve işaretçi en başta kalır. Ardından `curr.next.next` yapılmaya çalışıldığında `AttributeError: 'NoneType' object has no attribute 'next'` hatası fırlatır. Bu yüzden `lenn == n` ise doğrudan `head.next` döndürülerek ilk eleman atlanır.
 
 ```python
 class SolutionBruteForce:
@@ -95,7 +95,7 @@ class SolutionBruteForce:
 ```
 
 **Time Complexity:** `O(N)`  
-Big-O notasyonunda $O(N)$ olsa da, listeyi iki kez gezdiği için (Two-pass) toplam adım sayısı yaklaşık $2N$'dir. Pratik kullanımda optimal çözümden daha yavaştır[cite: 28].
+Big-O notasyonunda $O(N)$ olsa da, listeyi iki kez gezdiği için (Two-pass) toplam adım sayısı yaklaşık $2N$'dir. Pratik kullanımda optimal çözümden daha yavaştır.
 
 **Space Complexity:** `O(1)`  
-Sadece sayaç ve işaretçi değişkenleri kullanılır[cite: 28].
+Sadece sayaç ve işaretçi değişkenleri kullanılır.
